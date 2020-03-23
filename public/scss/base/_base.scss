@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Raleway|Abril+Fatface&display=swap');
+
+$primary-color: #b7bf9b;
+$secondary-color: #e6d9c8;
+
+$black: #272727;
+$dark-black: #212529;
+$light-black: #3f3f3f;
+
+$white:#fff;
+$off-white: #d5d5d5;
+
+$facebook: #3b5998;
+$twitter: #00aced;
+$instagram: #517fa4;
+$youtube: #bb0000;
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+body {
+   overflow-x: hidden;
+   font-family: 'Raleway', sans-serif;
+   font-size: 16px;
+}
+
+h1, h2, h6 {
+   font-family: 'Playfair Display', serif;
+}
+
+h6 {
+   padding-top: 4vh;
+   padding-bottom: 4vh;
+   font-size: 1.4rem;
+}

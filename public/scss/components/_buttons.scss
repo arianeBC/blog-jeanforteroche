@@ -1,0 +1,44 @@
+.btn-lg {
+   border-width: medium;
+   border-radius: 0;
+   font-size: 1.1rem;
+   margin-top: .4rem;
+   padding: .6rem 1.3rem;
+}
+.btn-outline-secondary {
+   border-color: $primary-color;
+   color: $black;
+   border-radius: inherit;
+   &:hover {
+      background: $primary-color;
+      color: $black;
+      border-color: $primary-color;
+   }
+   &:hover .fa-comment-alt {
+      color: $dark-black;
+      transition: 1s;
+   }
+}
+.btn-primary {
+   color: $black;
+   background-color: $primary-color;
+   border-radius: inherit;
+   border-color: $primary-color;
+   &:hover {
+      color: $black;
+      background-color: inherit;
+      border-color: $primary-color;
+   }
+   &:active,
+   &:focus {
+      color: $black!important;
+      background-color: inherit!important;
+      border-color: $primary-color!important;
+      box-shadow: none!important;
+      outline: none!important;
+   }
+}
+.btn-img {
+   margin: .4rem 0rem;
+   border: none;
+}
