@@ -88,7 +88,7 @@ include( ROOT_PATH . "/models/post.php");
 
                <div class="col-md-4">
                   <div class="card style="width: 300px;">
-                     <img src="public/images/<?php echo $post["image"]; ?>"  alt="" class="card-img-top">
+                     <img src="public/images/<?php echo $post["image"]; ?>"  alt="Aperçu de l'épisode" class="card-img-top">
                      <div class="card-body d-flex flex-column">
                         <h4 class="card-title"><?php echo $post["title"]; ?></h4>
                         <p class="card-text"><?php echo $post["excerpt"]; ?></p>

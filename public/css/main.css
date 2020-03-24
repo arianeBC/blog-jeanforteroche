@@ -10,7 +10,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+body,
+form {
   overflow-x: hidden;
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
@@ -213,7 +214,8 @@ video {
 }
 
 .btn-img {
-  margin: .4rem 0rem;
+  margin: .6rem 0rem;
+  padding: .2rem 0rem;
   border: none;
 }
 
@@ -295,6 +297,12 @@ a.navbar-brand, p.footer-brand {
   padding: 1rem;
   border-radius: 0;
   background-color: rgba(230, 217, 200, 0.5);
+}
+
+/*============EDIT POST FORM============*/
+.img-update {
+  width: 24rem;
+  padding: 1rem 0rem;
 }
 
 /*============LOGIN FORM============*/
@@ -600,6 +608,9 @@ hr.light-100 {
   .social a {
     font-size: 1.9rem;
     padding: .8rem;
+  }
+  .img-update {
+    width: 12rem;
   }
 }
 

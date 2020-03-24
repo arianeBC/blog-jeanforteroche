@@ -13,6 +13,9 @@
                <li class="nav-item">
                   <a href="episodes.php" class="nav-link">Les épisodes</a>
                </li>
+               <li class="nav-item">
+                  <a href="add.php" class="nav-link">Ajouter</a>
+               </li>
                <li class="nav-item navItemConnexion">
                   <a href="_login.php" class="nav-link">Connexion</a>
                </li>

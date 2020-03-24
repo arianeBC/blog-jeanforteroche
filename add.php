@@ -50,17 +50,17 @@ include( ROOT_PATH . "/includes/functions.php");
             <form action="add.php" method="POST" enctype="multipart/form-data">
             <h6 class="text-center">ESPACE ADMMINISTRATION – AJOUTER UN ÉPISODE</h6>
                <div class="card">
-                  <div class="card-header">Épisode</div>
+                  <div class="card-header">Ajouter un épisode</div>
                   <div class="card-body">
 
                      <div class="form-group">
                         <label for="title">Titre</label>
-                        <input type="text" name="title" class="form-control">
+                        <input type="text" name="title" class="form-control" maxlength="20">
                      </div>
 
                      <div class="form-group">
                         <label for="excerpt">Résumé</label>
-                        <textarea name="excerpt" class="form-control" ></textarea>
+                        <textarea name="excerpt" class="form-control" maxlength="70"></textarea>
                      </div>
 
                      <div class="form-group">

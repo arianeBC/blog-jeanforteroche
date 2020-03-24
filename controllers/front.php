@@ -13,6 +13,7 @@ class Front {
    * @param Array $uri [description]
    * @return Front
    */
+
    public function __construct($uri) {
       $this->uri = $uri;
       $todo = $uri[0];
@@ -28,7 +29,6 @@ class Front {
    private function chapitre() {
       $this->html = "chapitre : ";
       if (isset($this->uri[1])) $this->html .= $this->uri[1];
-      
    }
 
 }

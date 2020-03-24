@@ -14,7 +14,7 @@ include( ROOT_PATH . "/models/post.php");
    ?>
 
    <?php 
-   $post = new Post($db); 
+   $posts = new Post($db); 
    ?>
 
       <section id="episode">
@@ -27,12 +27,12 @@ include( ROOT_PATH . "/models/post.php");
          </div>
 
          <div class="container-fluid padding">
-         <?php foreach($post->getSinglePost($_GET["slug"]) as $post) { ?>
+         <?php foreach($posts->getSinglePost($_GET["slug"]) as $post) { ?>
 
             <div class="row padding justify-content-center">
                <div class="col-md-11 col-lg-10">
                   <div class="card page">
-                     <img src="public/images/<?php echo $post["image"]; ?>" alt="" class="card-img-top">
+                     <img src="public/images/<?php echo $post["image"]; ?>" alt="Aperçu de l'épisode" class="card-img-top">
                      <div class="card-body">
                         <h4 class="card-title"><?php echo $post["title"]; ?></h4> 
                         <p class="card-text author-date">
