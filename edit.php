@@ -3,7 +3,6 @@ require_once("config.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/post.php");
 include( ROOT_PATH . "/includes/functions.php");
-$posts = new Post($db);
 ?>
 
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
@@ -12,6 +11,19 @@ $posts = new Post($db);
 <body>
 
    <?php include( ROOT_PATH . "/includes/header.php"); ?>
+
+   <?php $posts = new Post($db);
+
+   if(isset($_POST["btnUpdate"])) {
+      $updated_at = date("Y-m-d");
+      $result = $posts->updatePost($_POST["title"], $_POST["excerpt"], $_POST["content"], $updated_at, $_GET["slug"]);
+      if($result == TRUE) {
+         echo "<div class='text-center alert alert-success'>Votre épisode à été mis à jour</div>";
+      } else {
+         echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
+      }
+   }
+   ?>
    
    <div class="container-fluid padding addpost">
       <div class="row padding justify-content-center">
@@ -54,6 +66,8 @@ $posts = new Post($db);
                </div>
             </div>
          </div>
+
          <?php } ?>
+         
       </div>
    </div>

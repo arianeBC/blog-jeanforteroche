@@ -12,31 +12,31 @@ include( ROOT_PATH . "/includes/functions.php");
 
    <?php include( ROOT_PATH . "/includes/header.php"); ?>
 
-   <?php $post = new Post($db);
+   <?php $posts = new Post($db);
 
    if(isset($_POST["btnSubmit"])) {
 
       if( !empty($_POST["title"]) && !empty($_POST["excerpt"]) && !empty($_POST["content"])) {
-         $title = strip_tags($_POST["title"]);
-         $excerpt = strip_tags($_POST["excerpt"]);
-         $content = $_POST["content"];
+         $title      = strip_tags($_POST["title"]);
+         $excerpt    = strip_tags($_POST["excerpt"]);
+         $content    = $_POST["content"];
          $created_at = date("Y-m-d");
-         $slug = createSlug($title);
+         $slug       = createSlug($title);
 
          $checkSlug = $db->query("SELECT * FROM posts WHERE slug = '$slug'");
-         $result = $checkSlug->num_rows;
+         $result    = $checkSlug->num_rows;
 
          if($result > 0) {
             foreach($checkSlug as $cslug) {
                $newSlug = $slug.uniqid();
             }
-            $record = $post->addPost($newSlug, $title, $excerpt, $content, uploadImage(), $created_at);
+            $record = $posts->addPost($newSlug, $title, $excerpt, $content, uploadImage(), $created_at);
          } else {
-            $record = $post->addPost($slug, $title, $excerpt, $content, uploadImage(), $created_at);
+            $record = $posts->addPost($slug, $title, $excerpt, $content, uploadImage(), $created_at);
          }
 
          if($record == TRUE) {
-            echo "<div class='text-center alert alert-success'>Post added Successfully</div>";
+            echo "<div class='text-center alert alert-success'>Votre épisode à été ajouté</div>";
          }
       } else {
          echo "<div class='text-center alert alert-danger'>Tous les champs sont requis</div>";
@@ -83,11 +83,3 @@ include( ROOT_PATH . "/includes/functions.php");
          </div>
       </div>
    </div>
-
-
-   <!-- public static function createSlug($str, $delimiter = '-'){
-
-$slug = strtolower(trim(preg_replace('/[\s-]+/', $delimiter, preg_replace('/[^A-Za-z0-9-]+/', $delimiter, preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $str))))), $delimiter));
-return $slug;
-
-}  -->
