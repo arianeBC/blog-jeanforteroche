@@ -46,7 +46,7 @@ include( ROOT_PATH . "/includes/functions.php");
    }
    ?>
 
-      <div class="container-fluid padding">
+   <div class="container-fluid padding">
       <div class="row text-right">
          <div class="col-12">
             <p class="dashboard-name">

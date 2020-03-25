@@ -481,20 +481,6 @@ hr.light-100 {
   font-size: 2.5rem;
 }
 
-.hidden-episodes {
-  width: 100%;
-  margin-bottom: 2rem;
-  background-color: #d5d5d5;
-  border: inherit;
-  outline: none !important;
-  font-size: 1.5rem;
-  padding: .2rem 0;
-}
-
-.hidden-episodes:hover {
-  opacity: .8;
-}
-
 /*============SOCIAL ICONS============*/
 .social a {
   font-size: 4.5rem;

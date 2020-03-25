@@ -38,7 +38,7 @@ class Post {
    }
 
    public function deletePostBySlug($slug) {
-      $sql    = "SELECT * FROM posts WHERE slug = '$slug'";
+      $sql    = "DELETE FROM posts WHERE posts.slug = '$slug'";
       $result = $this->db->query($sql);
       return $result;
    }
