@@ -5,6 +5,7 @@
 @import "./pages/author";
 @import "./pages/episode";
 @import "./pages/login";
+@import "./pages/dashboard";
 
 /*============AUTHOR EXCERPT============*/
 #author-excerpt {
@@ -98,6 +99,16 @@
 }
 
 @media (max-width: 768px) {
+   #navbarResponsive {
+      background: rgba($color: $white, $alpha: .98);
+      box-shadow: 0px 1px 1px $off-white;
+   }
+   .nav-item {
+      padding: 0px 0px 0px 15px;
+   }
+   .navItemConnexion {
+      border: none;
+   }
    .caption h1 {
       font-size: 1.4rem;
       line-height: 3rem;
@@ -142,16 +153,6 @@
       font-weight: 200;
       font-size: 1.1rem;
    }
-   #navbarResponsive {
-      background: rgba($color: $white, $alpha: .5);
-      box-shadow: 0px 1px 1px $off-white;
-   }
-   .nav-item {
-      padding: 0px 0px 0px 15px;
-   }
-   .navItemConnexion {
-      border: none;
-   }
    .fixed-wrap.secondary {
       clip: rect(1vh, auto, 20vh, 0px);
    }
@@ -171,6 +172,9 @@
    }
    .img-update {
       width: 12rem;
+   }
+   .excerpt-table {
+      display: none;
    }
 }
 

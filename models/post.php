@@ -41,11 +41,11 @@ class Post {
       $newImage = $_FILE["image"]["name"];
       if(!empty($newImage)) {
          $image  = uploadImage();
-         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', image='$image', updated_at='$updated_at' WHERE slug='$slug'";
+         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', image='$image', updated_at='$updated_at' WHERE slug = '$slug'";
          $result = $this->db->query($sql);
          return $result;
       } else {
-         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', image='$image', updated_at='$updated_at' WHERE slug='$slug'";
+         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', updated_at='$updated_at' WHERE slug = '$slug'";
          $result = $this->db->query($sql);
          return $result;
       }

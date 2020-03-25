@@ -432,6 +432,11 @@ hr.light-100 {
   padding-bottom: 8vh;
 }
 
+.dashboard-maj-col {
+  font-style: italic;
+  font-size: 12px;
+}
+
 /*============AUTHOR EXCERPT============*/
 #author-excerpt {
   padding-bottom: 4rem;
@@ -537,6 +542,17 @@ hr.light-100 {
 }
 
 @media (max-width: 768px) {
+  #navbarResponsive {
+    background: rgba(255, 255, 255, 0.98);
+    -webkit-box-shadow: 0px 1px 1px #d5d5d5;
+            box-shadow: 0px 1px 1px #d5d5d5;
+  }
+  .nav-item {
+    padding: 0px 0px 0px 15px;
+  }
+  .navItemConnexion {
+    border: none;
+  }
   .caption h1 {
     font-size: 1.4rem;
     line-height: 3rem;
@@ -581,17 +597,6 @@ hr.light-100 {
     font-weight: 200;
     font-size: 1.1rem;
   }
-  #navbarResponsive {
-    background: rgba(255, 255, 255, 0.5);
-    -webkit-box-shadow: 0px 1px 1px #d5d5d5;
-            box-shadow: 0px 1px 1px #d5d5d5;
-  }
-  .nav-item {
-    padding: 0px 0px 0px 15px;
-  }
-  .navItemConnexion {
-    border: none;
-  }
   .fixed-wrap.secondary {
     clip: rect(1vh, auto, 20vh, 0px);
   }
@@ -611,6 +616,9 @@ hr.light-100 {
   }
   .img-update {
     width: 12rem;
+  }
+  .excerpt-table {
+    display: none;
   }
 }
 

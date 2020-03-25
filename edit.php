@@ -2,7 +2,6 @@
 require_once("config.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/post.php");
-include( ROOT_PATH . "/includes/functions.php");
 ?>
 
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
@@ -12,8 +11,9 @@ include( ROOT_PATH . "/includes/functions.php");
 
    <?php include( ROOT_PATH . "/includes/header.php"); ?>
 
-   <?php $posts = new Post($db);
+   <?php $posts = new Post($db); ?>
 
+   <?php
    if(isset($_POST["btnUpdate"])) {
       $updated_at = date("Y-m-d");
       $result = $posts->updatePost($_POST["title"], $_POST["excerpt"], $_POST["content"], $updated_at, $_GET["slug"]);

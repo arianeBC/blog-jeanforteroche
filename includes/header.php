@@ -17,7 +17,7 @@
                   <a href="add.php" class="nav-link">Ajouter</a>
                </li>
                <li class="nav-item navItemConnexion">
-                  <a href="_login.php" class="nav-link">Connexion</a>
+                  <a href="result.php" class="nav-link">Tableau de bord</a>
                </li>
             </ul>
          </div>
