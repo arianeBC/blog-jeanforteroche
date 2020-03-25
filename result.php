@@ -1,7 +1,7 @@
 <?php 
 require_once("config.php");
+include( ROOT_PATH . "/session.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
-require_once( ROOT_PATH . "/session.php");
 include( ROOT_PATH . "/models/post.php");
 ?>
 
@@ -19,7 +19,7 @@ include( ROOT_PATH . "/models/post.php");
             <p class="dashboard-name">
                <?php 
                if(!empty($_SESSION['login'])) {
-                  echo "Bonjour, {$_SESSION['username']}";
+                  echo "Bienvenue {$_SESSION['username']} 📖";
                } else {
                   echo "Vous n'êtes pas connecté";
                }

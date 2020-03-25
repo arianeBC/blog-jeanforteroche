@@ -1,5 +1,6 @@
 <?php 
 require_once("config.php");
+include( ROOT_PATH . "/session.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/post.php");
 include( ROOT_PATH . "/includes/functions.php");
@@ -12,8 +13,9 @@ include( ROOT_PATH . "/includes/functions.php");
 
    <?php include( ROOT_PATH . "/includes/header.php"); ?>
 
-   <?php $posts = new Post($db);
+   <?php $posts = new Post($db); ?>
 
+   <?php
    if(isset($_POST['btnSubmit'])) {
 
       if( !empty($_POST['title']) && !empty($_POST['excerpt']) && !empty($_POST['content'])) {
@@ -43,6 +45,22 @@ include( ROOT_PATH . "/includes/functions.php");
       }
    }
    ?>
+
+      <div class="container-fluid padding">
+      <div class="row text-right">
+         <div class="col-12">
+            <p class="dashboard-name">
+               <?php 
+               if(!empty($_SESSION['login'])) {
+                  echo "Bienvenue {$_SESSION['username']} 📖";
+               } else {
+                  echo "Vous n'êtes pas connecté";
+               }
+               ?>
+            </p>
+         </div>
+      </div>
+   </div>
    
    <div class="container-fluid padding addpost">
       <div class="row padding justify-content-center">
