@@ -22,8 +22,8 @@ include( ROOT_PATH . "/models/post.php");
                <thead class="thead-dark">
                   <tr>
                      <th>Titre</th>
-                     <th class="excerpt-table">Résumé</th>
-                     <th>Créé le</th>
+                     <th class="sm-table">Résumé</th>
+                     <th class="sm-table">Créé le</th>
                      <th>Action</th>
                   </tr>
                </thead>
@@ -31,14 +31,17 @@ include( ROOT_PATH . "/models/post.php");
                   <?php foreach($posts->getPost() as $post) { ?>
                   <tr>
                      <td><?php echo $post["title"]; ?></td>
-                     <td class="excerpt-table"><?php echo $post["excerpt"]; ?></td>
-                     <td>
+                     <td class="sm-table"><?php echo $post["excerpt"]; ?></td>
+                     <td class="sm-table">
                         <?php echo $post["created_at"]; ?><br> 
-                        <span class="dashboard-maj-col"><?php if ($post["updated_at"] !== null) {
+                        <span class="updatedAt-dashboard"><?php if ($post["updated_at"] !== null) {
                            echo "Mise à jour le " . $post["updated_at"]; 
                         } ?></span>
                      </td>
-                     <td><a href="view.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-secondary ">Voir</button></a>
+                     <td>
+                        <a href="view.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-success btn-sm">Afficher</button></a>
+                        <a href="edit.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-primary btn-sm">Modifier</button></a>
+                        <a href="delete.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button></a>
                      </td>
                   </tr>
                   <?php } ?>

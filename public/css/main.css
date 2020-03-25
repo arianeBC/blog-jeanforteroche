@@ -219,6 +219,12 @@ video {
   border: none;
 }
 
+.btn-outline-success,
+.btn-outline-primary,
+.btn-outline-danger {
+  margin: 0rem .4rem .5rem 0rem;
+}
+
 /*============NAVBAR============*/
 a.navbar-brand, p.footer-brand {
   font-family: 'Abril Fatface', cursive;
@@ -432,7 +438,7 @@ hr.light-100 {
   padding-bottom: 8vh;
 }
 
-.dashboard-maj-col {
+.updatedAt-dashboard {
   font-style: italic;
   font-size: 12px;
 }
@@ -617,7 +623,7 @@ hr.light-100 {
   .img-update {
     width: 12rem;
   }
-  .excerpt-table {
+  .sm-table {
     display: none;
   }
 }

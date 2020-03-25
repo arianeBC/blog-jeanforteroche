@@ -84,7 +84,7 @@ include( ROOT_PATH . "/models/post.php");
             <div class="row padding episode-row">
 
                <?php 
-               foreach($post->getPost() as $post) { ?>
+               foreach($post->getLastPosts(3) as $post) { ?>
 
                <div class="col-md-4">
                   <div class="card style="width: 300px;">
@@ -105,7 +105,7 @@ include( ROOT_PATH . "/models/post.php");
          <div class="container-fluid padding">
          <div class="row text-center padding">
             <div class="col-12">
-               <a href="episodes.php" class="btn btn-primary">VOIR TOUS LES ÉPISODES</a>
+               <a href="episodes.php" class="btn btn-primary btn-lg">VOIR TOUS LES ÉPISODES</a>
             </div>
          </div>
       </div>

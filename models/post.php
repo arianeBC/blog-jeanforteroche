@@ -20,6 +20,12 @@ class Post {
       return $result;
    }
 
+   public function getLastPosts($numberOfPost) {
+      $sql    = "SELECT * FROM posts ORDER BY created_at DESC LIMIT $numberOfPost";
+      $result = $this->db->query($sql);
+      return $result;
+   }
+
    public function getSinglePost($slug) {
       $sql =
          "SELECT posts.*, users.user_name
