@@ -39,9 +39,9 @@ include( ROOT_PATH . "/models/post.php");
                         } ?></span>
                      </td>
                      <td>
-                        <a href="view.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-success btn-sm">Afficher</button></a>
-                        <a href="edit.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-primary btn-sm">Modifier</button></a>
-                        <a href="delete.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button></a>
+                        <a href="view.php?slug=<?php echo $post["slug"]; ?>"><button type="submit" class="btn btn-outline-success btn-sm">Afficher</button></a>
+                        <a href="edit.php?slug=<?php echo $post["slug"]; ?>"><button type="submit" class="btn btn-outline-primary btn-sm">Modifier</button></a>
+                        <a href="delete.php?slug=<?php echo $post["slug"]; ?>"><button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button></a>
                      </td>
                   </tr>
                   <?php } ?>
