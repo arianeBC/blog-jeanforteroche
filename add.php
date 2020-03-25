@@ -14,12 +14,12 @@ include( ROOT_PATH . "/includes/functions.php");
 
    <?php $posts = new Post($db);
 
-   if(isset($_POST["btnSubmit"])) {
+   if(isset($_POST['btnSubmit'])) {
 
-      if( !empty($_POST["title"]) && !empty($_POST["excerpt"]) && !empty($_POST["content"])) {
-         $title      = strip_tags($_POST["title"]);
-         $excerpt    = strip_tags($_POST["excerpt"]);
-         $content    = $_POST["content"];
+      if( !empty($_POST['title']) && !empty($_POST['excerpt']) && !empty($_POST['content'])) {
+         $title      = strip_tags($_POST['title']);
+         $excerpt    = strip_tags($_POST['excerpt']);
+         $content    = $_POST['content'];
          $created_at = date("Y-m-d");
          $slug       = createSlug($title);
 

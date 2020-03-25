@@ -14,9 +14,9 @@ include( ROOT_PATH . "/models/post.php");
    <?php $posts = new Post($db); ?>
 
    <?php
-   if(isset($_POST["btnUpdate"])) {
+   if(isset($_POST['btnUpdate'])) {
       $updated_at = date("Y-m-d");
-      $result = $posts->updatePost($_POST["title"], $_POST["excerpt"], $_POST["content"], $updated_at, $_GET["slug"]);
+      $result = $posts->updatePost($_POST['title'], $_POST['excerpt'], $_POST['content'], $updated_at, $_GET['slug']);
       if($result == TRUE) {
          echo "<div class='text-center alert alert-success'>Votre épisode à été mis à jour</div>";
       } else {
@@ -28,7 +28,7 @@ include( ROOT_PATH . "/models/post.php");
    <div class="container-fluid padding addpost">
       <div class="row padding justify-content-center">
 
-         <?php foreach($posts->getSinglePost($_GET["slug"]) as $post) { ?>
+         <?php foreach($posts->getSinglePost($_GET['slug']) as $post) { ?>
 
          <div class="col-lg-6 col-md-8">
             <form action="add.php" method="POST" enctype="multipart/form-data">
@@ -56,7 +56,7 @@ include( ROOT_PATH . "/models/post.php");
                      <hr>
                      <label for="image" class="float-left">Image</label><br>
                      <input type="file" name="image" class="form-control btn-img"/>
-                     <img class="img-update" src="public/images/<?php echo $post["image"]; ?>"/>
+                     <img class="img-update" src="public/images/<?php echo $post['image']; ?>"/>
                      </div>
                      
                      <div class="form-group float-right">

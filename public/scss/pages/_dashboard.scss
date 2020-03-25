@@ -1,4 +1,12 @@
 .updatedAt-dashboard {
-   font-style: italic;
    font-size: 12px;
+   font-style: italic;
+}
+.dashboard-name {
+   margin: 0;
+   margin-right: .1rem;
+   font-size: 14px;
+   line-height: 0;
+   font-weight: 600;
+   color: rgba($color: $light-black, $alpha: .85)
 }

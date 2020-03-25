@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
    $db = new mysqli("localhost", "root", "qwerty", "jeanforteroche");
    $db->set_charset("utf8mb4");
 
@@ -13,6 +11,3 @@ session_start();
 // define global constants
 define ("ROOT_PATH", realpath(dirname(__FILE__)) );
 define ("BASE_URL", "http://localhost:4000/www/jeanforteroche/");
-
-
-

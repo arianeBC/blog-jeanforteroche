@@ -11,8 +11,8 @@ include( ROOT_PATH . "/models/account.php");
    <?php include( ROOT_PATH . "/includes/header.php"); ?>
    <?php $user = new Account($db); ?>
    <?php 
-   if(isset($_POST["btnLogin"])) {
-      $user->login($_POST["login"], md5($_POST["pwd"]));
+   if(isset($_POST['btnLogin'])) {
+      $user->login($_POST['login'], md5($_POST['pwd']));
    }
    ?> 
 

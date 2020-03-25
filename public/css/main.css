@@ -439,8 +439,17 @@ hr.light-100 {
 }
 
 .updatedAt-dashboard {
-  font-style: italic;
   font-size: 12px;
+  font-style: italic;
+}
+
+.dashboard-name {
+  margin: 0;
+  margin-right: .1rem;
+  font-size: 14px;
+  line-height: 0;
+  font-weight: 600;
+  color: rgba(63, 63, 63, 0.85);
 }
 
 /*============AUTHOR EXCERPT============*/
@@ -593,6 +602,9 @@ hr.light-100 {
   }
   .card.page {
     margin-top: -22vh;
+  }
+  .dashboard-name {
+    display: none;
   }
 }
 

@@ -10,6 +10,6 @@ include( ROOT_PATH . "/models/post.php");
 <?php $posts = new Post($db); ?>
 
 <?php 
-$posts->deletePostBySlug($_GET["slug"]);
+$posts->deletePostBySlug($_GET['slug']);
 header("Location:result.php");
 ?>

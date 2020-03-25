@@ -27,24 +27,24 @@ include( ROOT_PATH . "/models/post.php");
          </div>
 
          <div class="container-fluid padding">
-         <?php foreach($posts->getSinglePost($_GET["slug"]) as $post) { ?>
+         <?php foreach($posts->getSinglePost($_GET['slug']) as $post) { ?>
 
             <div class="row padding justify-content-center">
                <div class="col-md-11 col-lg-10">
                   <div class="card page">
-                     <img src="public/images/<?php echo $post["image"]; ?>" alt="Aperçu de l'épisode" class="card-img-top">
+                     <img src="public/images/<?php echo $post['image']; ?>" alt="Aperçu de l'épisode" class="card-img-top">
                      <div class="card-body">
-                        <h4 class="card-title"><?php echo $post["title"]; ?></h4> 
+                        <h4 class="card-title"><?php echo $post['title']; ?></h4> 
                         <p class="card-text author-date">
-                           <?php echo $post["user_name"]; ?><br>
-                           <?php echo $post["created_at"]; ?><br>
+                           <?php echo $post['user_name']; ?><br>
+                           <?php echo $post['created_at']; ?><br>
                            <?php 
-                              if ($post["updated_at"] !== null) {
-                              echo "MISE À JOUR " . $post["updated_at"]; 
+                              if ($post['updated_at'] !== null) {
+                              echo "MISE À JOUR " . $post['updated_at']; 
                               }
                            ?>
                         </p>
-                        <p class="card-text"><?php echo htmlspecialchars_decode( $post["content"] ); ?></p>
+                        <p class="card-text"><?php echo htmlspecialchars_decode( $post['content'] ); ?></p>
                         <a href="#" class="btn btn-outline-secondary float-right"><i class="far fa-comment-alt"></i>Commenter</a>
                      </div>
                   </div>
