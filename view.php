@@ -2,6 +2,7 @@
 require_once("config.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/post.php");
+include( ROOT_PATH . "/models/comment.php");
 ?>
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
 </head>
@@ -15,6 +16,7 @@ include( ROOT_PATH . "/models/post.php");
 
    <?php 
    $posts = new Post($db); 
+   $comments = new Comment($db);
    ?>
 
       <section id="episode">
@@ -27,7 +29,8 @@ include( ROOT_PATH . "/models/post.php");
          </div>
 
          <div class="container-fluid padding">
-         <?php foreach($posts->getSinglePost($_GET['slug']) as $post) { ?>
+         <?php 
+         foreach($posts->getSinglePost($_GET['slug']) as $post) { ?>
 
             <div class="row padding justify-content-center">
                <div class="col-md-11 col-lg-10">
@@ -45,6 +48,32 @@ include( ROOT_PATH . "/models/post.php");
                            ?>
                         </p>
                         <p class="card-text"><?php echo htmlspecialchars_decode( $post['content'] ); ?></p>
+         <?php } ?>
+         <?php 
+         if(isset($_POST['btnComment'])) {
+            $date_created = date("Y-m-d");
+            $id_group = 4;
+            $createUser = $comments->addUser(NULL, $id_group, $_POST['name'], $_POST['email'], '', $date_created);
+            if($createUser == TRUE) {
+               echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
+            } else {
+               echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
+            }
+
+            // $username = $_POST['name'];
+            // $published_at = date("Y-m-d");
+            // $slug = $_GET['slug'];
+            // $findUser = $comments->findIdUser($username);
+            // $findPost = $comments->findIdPost($slug);
+      
+            // $userComment = $comments->addComment($findUser, $findPost, $_POST['comment'], $published_at);
+            // if($userComment == TRUE) {
+            //    echo "<div class='text-center alert alert-success'>Votre commentaire a été ajouté</div>";
+            // } else {
+            //    echo "<div class='text-center alert alert-danger'>Une erreur est survenue. Veuillez réessayer</div>";
+            // }
+         }
+         ?>
                         <h4 class="card-title comment-section">Commentaires</h4>
                         <form class="comment-form" action="" method="POST">
                               <div class="col-xl-6">
@@ -61,7 +90,7 @@ include( ROOT_PATH . "/models/post.php");
                                     <textarea name="comment" class="form-control" required></textarea>
                                  </div>
                                  <div class="form-group">
-                                    <button type="submit" class="btn btn-outline-secondary float-right"><i class="far fa-comment-alt"></i>Commenter</button>
+                                    <button type="submit" name="btnComment" class="btn btn-outline-secondary float-right"><i class="far fa-comment-alt"></i>Commenter</button>
                                  </div>
                               </div>
                         </form>
@@ -70,7 +99,7 @@ include( ROOT_PATH . "/models/post.php");
                </div>
             </div>
 
-         <?php } ?>
+
          </div>
       </section>
 

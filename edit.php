@@ -16,7 +16,7 @@
       $updated_at = date("Y-m-d");
       $result = $posts->updatePost($_POST['title'], $_POST['excerpt'], $_POST['content'], $updated_at, $_GET['slug']);
       if($result == TRUE) {
-         echo "<div class='text-center alert alert-success'>Votre épisode à été mis à jour</div>";
+         echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
       } else {
          echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
       }
