@@ -32,4 +32,16 @@ class Comment {
       $result = $this->db->query($sql);
       return $result;
    }
+
+   public function updateComment($id) {
+      $sql = "UPDATE comments SET status=1 WHERE comments.id_comment='$id'";
+      $result = $this->db->query($sql);
+      return $result;
+   }
+
+   public function deleteComment($id) {
+      $sql = "DELETE FROM comments WHERE comments.id_comment='$id'";
+      $result = $this->db->query($sql);
+      return $result;
+   }
 }

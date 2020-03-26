@@ -40,11 +40,36 @@ $comments = new Comment($db);
                         </span>
                      </td>
                      <td class="table-action">
-                        <a href="#"><button type="submit" class="btn btn-outline-success btn-sm">Approuver</button></a>
-                        <a href="#"><button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button></a>
+
+                        <form action="" method="POST">
+                           <input type="hidden" name="approveId" value="<?php echo $comment['id_comment']; ?>">
+                           <a href="#"><button type="submit" class="btn btn-outline-success btn-sm" name="approve">Approuver</button></a>
+                           <input type="hidden" name="deleteId" value="<?php echo $comment['id_comment']; ?>">
+                           <a href="#"><button type="submit" class="btn btn-outline-danger btn-sm" name="delete">Supprimer</button></a>
+                        </form>
                      </td>
                   </tr>
                   <?php } ?>
+
+                  <?php
+                  if(isset($_POST['approve'])) {
+                     $result = $comments->updateComment($_POST['approveId']);
+                     if($result == TRUE) {
+                        echo "<div class='text-center alert alert-success'>Commentaire approuvé</div>";
+                     } else {
+                        echo "<div class='text-center alert alert-danger'>Belle crotte</div>";
+                     }
+                  }
+
+                  if(isset($_POST['delete'])) {
+                     $result = $comments->deleteComment($_POST['deleteId']);
+                     if($result == TRUE) {
+                        echo "<div class='text-center alert alert-success'>Commentaire supprimé</div>";
+                     } else {
+                        echo "<div class='text-center alert alert-danger'>Belle crotte</div>";
+                     }
+                  }
+                  ?>
                </tbody>
             </table>
 
