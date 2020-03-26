@@ -449,6 +449,11 @@ hr.light-100 {
   border-radius: 50%;
 }
 
+.btn-comment {
+  margin-top: 1rem;
+  margin-bottom: .6rem;
+}
+
 #login {
   min-height: 70.5vh;
 }

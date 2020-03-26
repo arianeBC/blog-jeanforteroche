@@ -49,16 +49,19 @@ include( ROOT_PATH . "/models/comment.php");
                         </p>
                         <p class="card-text"><?php echo htmlspecialchars_decode( $post['content'] ); ?></p>
          <?php } ?>
+
                         <h4 class="card-title comment-title">Commentaires</h4>
+         <?php  foreach($comments->getCommentBySlug($_GET['slug']) as $comment) { ?>
                         <div class="media comment-section">
                            <div class="media-left media-top">
                               <img class="avatar-img" src="public/images/avatar.png">
                            </div>
                            <div class="media-body comment-body">
-                              <strong>Animta</strong>
-                              <p>hdfhdfddddddddddddddddddddd</p> 
+                              <strong><?php echo $comment['name']; ?></strong>
+                              <p><?php echo $comment['comment']; ?></p> 
                            </div>
                         </div> 
+         <?php } ?>
          <?php 
          if(isset($_POST['btnComment'])) {
             if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comment'])) {
@@ -89,7 +92,7 @@ include( ROOT_PATH . "/models/comment.php");
                                     <textarea name="comment" class="form-control"></textarea>
                                  </div>
                                  <div class="form-group">
-                                    <button type="submit" name="btnComment" class="btn btn-outline-secondary float-right"><i class="far fa-comment-alt"></i>Publier</button>
+                                    <button type="submit" name="btnComment" class="btn btn-outline-secondary float-right btn-comment"><i class="far fa-comment-alt"></i>Publier</button>
                                  </div>
                               </div>
                         </form>
