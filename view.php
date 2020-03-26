@@ -51,8 +51,15 @@ include( ROOT_PATH . "/models/comment.php");
          <?php } ?>
          <?php 
          if(isset($_POST['btnComment'])) {
-            $published_at = date("Y-m-d");
-            $comments->comment($_POST['name'], $_POST['email'], $_POST['comment'], $published_at, $_GET['slug']);
+            if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comment'])) {
+               $published_at = date("Y-m-d");
+               $result = $comments->comment(strip_tags($_POST['name']), strip_tags($_POST['email']), strip_tags($_POST['comment']), $published_at, strip_tags($_GET['slug']));
+               if ($result == TRUE) {
+                  echo "<div class='text-center alert alert-success'>Votre commentaire à été ajouté</div>";
+               }
+            } else {
+               echo "<div class='text-center alert alert-danger'>Votre commentaire n'a pas pu être ajouté. Vérifiez que tous les champs soient remplis.</div>";
+            }
          }
          ?>
                         <h4 class="card-title comment-section">Commentaires</h4>
@@ -60,15 +67,15 @@ include( ROOT_PATH . "/models/comment.php");
                               <div class="col-xl-6">
                                  <div class="form-group">
                                     <label for="name">Nom</label>
-                                    <input type="text" name="name" class="form-control" required>
+                                    <input type="text" name="name" class="form-control">
                                  </div>
                                  <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" required>
+                                    <input type="email" name="email" class="form-control">
                                  </div>
                                  <div class="form-group">
                                     <label for="comment">Commentaire</label>
-                                    <textarea name="comment" class="form-control" required></textarea>
+                                    <textarea name="comment" class="form-control"></textarea>
                                  </div>
                                  <div class="form-group">
                                     <button type="submit" name="btnComment" class="btn btn-outline-secondary float-right"><i class="far fa-comment-alt"></i>Commenter</button>
