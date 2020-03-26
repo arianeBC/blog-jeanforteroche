@@ -50,7 +50,7 @@ include( ROOT_PATH . "/models/comment.php");
                         <p class="card-text"><?php echo htmlspecialchars_decode( $post['content'] ); ?></p>
          <?php } ?>
 
-                        <h4 class="card-title comment-title">Commentaires</h4>
+                        <h4 class="card-title comment-title">Commentaires (<?php echo $comments->countComments($_GET['slug']); ?>)</h4>
          <?php foreach($comments->getCommentBySlug($_GET['slug']) as $comment) { ?>
                         <div class="media comment-section">
                            <div class="media-left media-top">

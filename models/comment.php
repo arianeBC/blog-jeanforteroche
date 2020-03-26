@@ -19,4 +19,11 @@ class Comment {
       $result = $this->db->query($sql);
       return $result;
    }
+
+   public function countComments($slug) {
+      $sql = "SELECT * FROM comments WHERE slug='$slug' AND status=1 ORDER BY published_at DESC";
+      $checkComments = $this->db->query($sql);
+      $result = $checkComments->num_rows;
+      return $result;
+   }
 }
