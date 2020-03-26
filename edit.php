@@ -1,8 +1,6 @@
-<?php 
-require_once("config.php");
-require_once( ROOT_PATH . "/includes/head_section.php");
-include( ROOT_PATH . "/models/post.php");
-?>
+<?php require_once("config.php"); ?>
+<?php require_once( ROOT_PATH . "/includes/head_section.php"); ?>
+<?php include( ROOT_PATH . "/models/post.php"); ?>
 
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
 </head>

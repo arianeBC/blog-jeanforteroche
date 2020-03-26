@@ -1,10 +1,8 @@
-<?php 
-require_once("config.php");
-include( ROOT_PATH . "/session.php");
-require_once( ROOT_PATH . "/includes/head_section.php");
-include( ROOT_PATH . "/models/post.php");
-include( ROOT_PATH . "/includes/functions.php");
-?>
+<?php require_once("config.php"); ?>
+<?php include( ROOT_PATH . "/session.php"); ?>
+<?php require_once( ROOT_PATH . "/includes/head_section.php"); ?>
+<?php include( ROOT_PATH . "/models/post.php"); ?>
+<?php include( ROOT_PATH . "/includes/functions.php"); ?>
 
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
 </head>
@@ -12,39 +10,6 @@ include( ROOT_PATH . "/includes/functions.php");
 <body>
 
    <?php include( ROOT_PATH . "/includes/header.php"); ?>
-
-   <?php $posts = new Post($db); ?>
-
-   <?php
-   if(isset($_POST['btnSubmit'])) {
-
-      if( !empty($_POST['title']) && !empty($_POST['excerpt']) && !empty($_POST['content'])) {
-         $title      = strip_tags($_POST['title']);
-         $excerpt    = strip_tags($_POST['excerpt']);
-         $content    = $_POST['content'];
-         $created_at = date("Y-m-d");
-         $slug       = createSlug($title);
-
-         $checkSlug = $db->query("SELECT * FROM posts WHERE slug = '$slug'");
-         $result    = $checkSlug->num_rows;
-
-         if($result > 0) {
-            foreach($checkSlug as $cslug) {
-               $newSlug = $slug.uniqid();
-            }
-            $record = $posts->addPost($newSlug, $title, $excerpt, $content, uploadImage(), $created_at);
-         } else {
-            $record = $posts->addPost($slug, $title, $excerpt, $content, uploadImage(), $created_at);
-         }
-
-         if($record == TRUE) {
-            echo "<div class='text-center alert alert-success'>Votre épisode à été ajouté</div>";
-         }
-      } else {
-         echo "<div class='text-center alert alert-danger'>Tous les champs sont requis</div>";
-      }
-   }
-   ?>
 
    <div class="container-fluid padding">
       <div class="row text-right">
@@ -61,6 +26,40 @@ include( ROOT_PATH . "/includes/functions.php");
          </div>
       </div>
    </div>
+
+   <?php $posts = new Post($db); ?>
+
+   <?php
+   if(isset($_POST['btnSubmit'])) {
+
+      if( !empty($_POST['title']) && !empty($_POST['excerpt']) && !empty($_POST['content'])) {
+         $id_user    = $_SESSION['userid'];
+         $title      = strip_tags($_POST['title']);
+         $excerpt    = strip_tags($_POST['excerpt']);
+         $content    = $_POST['content'];
+         $created_at = date("Y-m-d");
+         $slug       = createSlug($title);
+
+         $checkSlug = $db->query("SELECT * FROM posts WHERE slug = '$slug'");
+         $result    = $checkSlug->num_rows;
+
+         if($result > 0) {
+            foreach($checkSlug as $cslug) {
+               $newSlug = $slug.uniqid();
+            }
+            $record = $posts->addPost($newSlug, $id_user, $title, $excerpt, $content, uploadImage(), $created_at);
+         } else {
+            $record = $posts->addPost($slug, $id_user, $title, $excerpt, $content, uploadImage(), $created_at);
+         }
+
+         if($record == TRUE) {
+            echo "<div class='text-center alert alert-success'>Votre épisode à été ajouté</div>";
+         }
+      } else {
+         echo "<div class='text-center alert alert-danger'>Tous les champs sont requis</div>";
+      }
+   }
+   ?>
    
    <div class="container-fluid padding addpost">
       <div class="row padding justify-content-center">

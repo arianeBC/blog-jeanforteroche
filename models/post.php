@@ -1,6 +1,7 @@
-<?php
-require_once("config.php");
+<?php require_once("config.php"); ?>
+<?php require_once( ROOT_PATH . "/includes/functions.php"); ?>
 
+<?php 
 class Post {
    private $db;
 
@@ -8,8 +9,8 @@ class Post {
       $this->db = $db;
    }
 
-   public function addPost($slug, $title, $excerpt, $content, $image, $created_at) {
-      $sql    = "INSERT INTO posts (slug, title, excerpt, content, image, created_at) VALUES ('$slug', '$title', '$excerpt', '$content', '$image', '$created_at')";
+   public function addPost($slug, $id_user, $title, $excerpt, $content, $image, $created_at) {
+      $sql    = "INSERT INTO posts (slug, id_user, title, excerpt, content, image, created_at) VALUES ('$slug', '$id_user', '$title', '$excerpt', '$content', '$image', '$created_at')";
       $result = $this->db->query($sql);
       return $result;
    }
@@ -47,11 +48,11 @@ class Post {
       $newImage = $_FILE["image"]["name"];
       if(!empty($newImage)) {
          $image  = uploadImage();
-         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', image='$image', updated_at='$updated_at' WHERE slug = '$slug'";
+         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', image='$image', updated_at='$updated_at' WHERE posts.slug = '$slug'";
          $result = $this->db->query($sql);
          return $result;
       } else {
-         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', updated_at='$updated_at' WHERE slug = '$slug'";
+         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', updated_at='$updated_at' WHERE posts.slug = '$slug'";
          $result = $this->db->query($sql);
          return $result;
       }

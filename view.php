@@ -45,7 +45,26 @@ include( ROOT_PATH . "/models/post.php");
                            ?>
                         </p>
                         <p class="card-text"><?php echo htmlspecialchars_decode( $post['content'] ); ?></p>
-                        <a href="#" class="btn btn-outline-secondary float-right"><i class="far fa-comment-alt"></i>Commenter</a>
+                        <h4 class="card-title comment-section">Commentaires</h4>
+                        <form class="comment-form" action="" method="POST">
+                              <div class="col-xl-6">
+                                 <div class="form-group">
+                                    <label for="name">Nom</label>
+                                    <input type="text" name="name" class="form-control" required>
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" required>
+                                 </div>
+                                 <div class="form-group">
+                                    <label for="comment">Commentaire</label>
+                                    <textarea name="comment" class="form-control" required></textarea>
+                                 </div>
+                                 <div class="form-group">
+                                    <button type="submit" class="btn btn-outline-secondary float-right"><i class="far fa-comment-alt"></i>Commenter</button>
+                                 </div>
+                              </div>
+                        </form>
                      </div>
                   </div>
                </div>

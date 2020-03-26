@@ -24,7 +24,7 @@ include( ROOT_PATH . "/models/account.php");
                <form action="login.php" method="POST">
                   <div class="form-group login">
 
-                     <input type="email" name="login" required>
+                     <input type="email" name="login" autocomplete="off" required>
                      <label for="login" class="label-name">
                         <span class="content-name">Identifiant</span>
                      </label>
