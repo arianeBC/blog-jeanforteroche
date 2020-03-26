@@ -51,27 +51,8 @@ include( ROOT_PATH . "/models/comment.php");
          <?php } ?>
          <?php 
          if(isset($_POST['btnComment'])) {
-            $date_created = date("Y-m-d");
-            $id_group = 4;
-            $createUser = $comments->addUser(NULL, $id_group, $_POST['name'], $_POST['email'], '', $date_created);
-            if($createUser == TRUE) {
-               echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
-            } else {
-               echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
-            }
-
-            // $username = $_POST['name'];
-            // $published_at = date("Y-m-d");
-            // $slug = $_GET['slug'];
-            // $findUser = $comments->findIdUser($username);
-            // $findPost = $comments->findIdPost($slug);
-      
-            // $userComment = $comments->addComment($findUser, $findPost, $_POST['comment'], $published_at);
-            // if($userComment == TRUE) {
-            //    echo "<div class='text-center alert alert-success'>Votre commentaire a été ajouté</div>";
-            // } else {
-            //    echo "<div class='text-center alert alert-danger'>Une erreur est survenue. Veuillez réessayer</div>";
-            // }
+            $published_at = date("Y-m-d");
+            $comments->comment($_POST['name'], $_POST['email'], $_POST['comment'], $published_at, $_GET['slug']);
          }
          ?>
                         <h4 class="card-title comment-section">Commentaires</h4>
