@@ -35,7 +35,7 @@ include( ROOT_PATH . "/models/comment.php");
             <div class="row padding justify-content-center">
                <div class="col-md-11 col-lg-10">
                   <div class="card page">
-                     <img src="public/images/<?php echo $post['image']; ?>" alt="Aperçu de l'épisode" class="card-img-top">
+                     <img class="episode-img" src="public/images/<?php echo $post['image']; ?>" alt="Aperçu de l'épisode" class="card-img-top">
                      <div class="card-body">
                         <h4 class="card-title"><?php echo $post['title']; ?></h4> 
                         <p class="card-text author-date">
@@ -49,6 +49,16 @@ include( ROOT_PATH . "/models/comment.php");
                         </p>
                         <p class="card-text"><?php echo htmlspecialchars_decode( $post['content'] ); ?></p>
          <?php } ?>
+                        <h4 class="card-title comment-title">Commentaires</h4>
+                        <div class="media comment-section">
+                           <div class="media-left media-top">
+                              <img class="avatar-img" src="public/images/avatar.png">
+                           </div>
+                           <div class="media-body comment-body">
+                              <strong>Animta</strong>
+                              <p>hdfhdfddddddddddddddddddddd</p> 
+                           </div>
+                        </div> 
          <?php 
          if(isset($_POST['btnComment'])) {
             if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comment'])) {
@@ -62,7 +72,8 @@ include( ROOT_PATH . "/models/comment.php");
             }
          }
          ?>
-                        <h4 class="card-title comment-section">Commentaires</h4>
+
+                        <h5 class="card-title comment-title">Votre commentaire :</h5>
                         <form class="comment-form" action="" method="POST">
                               <div class="col-xl-6">
                                  <div class="form-group">
@@ -78,10 +89,13 @@ include( ROOT_PATH . "/models/comment.php");
                                     <textarea name="comment" class="form-control"></textarea>
                                  </div>
                                  <div class="form-group">
-                                    <button type="submit" name="btnComment" class="btn btn-outline-secondary float-right"><i class="far fa-comment-alt"></i>Commenter</button>
+                                    <button type="submit" name="btnComment" class="btn btn-outline-secondary float-right"><i class="far fa-comment-alt"></i>Publier</button>
                                  </div>
                               </div>
                         </form>
+
+
+
                      </div>
                   </div>
                </div>

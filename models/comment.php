@@ -13,4 +13,10 @@ class Comment {
       $result = $this->db->query($sql);
       return $result;
    }
+
+   public function getCommentBySlug($slug) {
+      $sql = "SELECT * FROM comments WHERE slug = '$slug'";
+      $result = $this->db->query($sql);
+      return $result;
+   }
 }
