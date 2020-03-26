@@ -51,7 +51,7 @@ include( ROOT_PATH . "/models/comment.php");
          <?php } ?>
 
                         <h4 class="card-title comment-title">Commentaires</h4>
-         <?php  foreach($comments->getCommentBySlug($_GET['slug']) as $comment) { ?>
+         <?php foreach($comments->getCommentBySlug($_GET['slug']) as $comment) { ?>
                         <div class="media comment-section">
                            <div class="media-left media-top">
                               <img class="avatar-img" src="public/images/avatar.png">
@@ -59,6 +59,7 @@ include( ROOT_PATH . "/models/comment.php");
                            <div class="media-body comment-body">
                               <strong><?php echo $comment['name']; ?></strong>
                               <p><?php echo $comment['comment']; ?></p> 
+                              <span class="comment-date float-right"><?php echo "Publié le ". $comment['published_at']; ?></span><br>
                            </div>
                         </div> 
          <?php } ?>
@@ -66,7 +67,8 @@ include( ROOT_PATH . "/models/comment.php");
          if(isset($_POST['btnComment'])) {
             if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comment'])) {
                $published_at = date("Y-m-d");
-               $result = $comments->comment(strip_tags($_POST['name']), strip_tags($_POST['email']), strip_tags($_POST['comment']), $published_at, strip_tags($_GET['slug']));
+               $status = 0;
+               $result = $comments->comment(strip_tags($_POST['name']), strip_tags($_POST['email']), strip_tags($_POST['comment']), $published_at, $_GET['slug'], $status);
                if ($result == TRUE) {
                   echo "<div class='text-center alert alert-success'>Votre commentaire à été ajouté</div>";
                }
@@ -89,7 +91,7 @@ include( ROOT_PATH . "/models/comment.php");
                                  </div>
                                  <div class="form-group">
                                     <label for="comment">Commentaire</label>
-                                    <textarea name="comment" class="form-control"></textarea>
+                                    <textarea name="comment" class="form-control" maxlength="516"></textarea>
                                  </div>
                                  <div class="form-group">
                                     <button type="submit" name="btnComment" class="btn btn-outline-secondary float-right btn-comment"><i class="far fa-comment-alt"></i>Publier</button>

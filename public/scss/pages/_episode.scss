@@ -13,7 +13,8 @@
    padding: 1rem 0 1rem 1rem;
 }
 .comment-body {
-   padding: 1rem;
+   overflow: hidden;
+   padding: 1rem 1rem 0rem 1rem;
    border-radius: .3rem;
    background-color: rgba($color: $off-white, $alpha: .5);
 }
@@ -21,6 +22,11 @@
    margin: 0rem 1.6rem 0rem .6rem;
    width: 55px;
    border-radius: 50%;
+}
+.comment-date {
+   font-size: 12px;
+   font-style: italic;
+   line-height: 2rem;
 }
 .btn-comment {
    margin-top:1rem;

@@ -8,14 +8,14 @@ class Comment {
       $this->db = $db;
    }
 
-   public function comment($name, $email, $comment, $published_at, $slug) {
-      $sql = "INSERT INTO comments(name, email, comment, published_at, slug) VALUES ('$name', '$email', '$comment', '$published_at', '$slug')";
+   public function comment($name, $email, $comment, $published_at, $slug, $status) {
+      $sql = "INSERT INTO comments(name, email, comment, published_at, slug, status) VALUES ('$name', '$email', '$comment', '$published_at', '$slug', '$status')";
       $result = $this->db->query($sql);
       return $result;
    }
 
    public function getCommentBySlug($slug) {
-      $sql = "SELECT * FROM comments WHERE slug = '$slug'";
+      $sql = "SELECT * FROM comments WHERE slug='$slug' AND status=1 ORDER BY published_at DESC";
       $result = $this->db->query($sql);
       return $result;
    }
