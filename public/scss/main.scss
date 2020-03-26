@@ -96,6 +96,10 @@
       font-size: 4rem;
       padding: 2rem;
    }
+   .table-comment {
+      overflow-wrap: break-word!important;
+      max-width: 250px;
+   }
 }
 
 @media (max-width: 768px) {
@@ -147,6 +151,16 @@
    .dashboard-name {
       display: none;
    }
+   .table-comment {
+      overflow-wrap: break-word!important;
+   }
+   .table-email {
+      overflow-wrap: break-word!important;
+      max-width: 180px;
+   }
+   .table-action {
+      max-width: 110px;
+   }
 }
 
 @media (max-width: 576px) {
@@ -178,6 +192,24 @@
    }
    .sm-table {
       display: none;
+   }
+   h6 {
+      padding-top: 0;
+      padding-bottom: 4vh;
+      font-size: 1.2rem;
+   }
+   .btn-comment {
+      float: left;
+   }
+   .table-comment {
+      overflow-wrap: break-word!important;
+      max-width: 100px;
+   }
+   tbody {
+      font-size: 10px;
+   }
+   .table-action {
+      max-width: 100px;
    }
 }
 

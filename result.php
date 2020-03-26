@@ -31,24 +31,26 @@ include( ROOT_PATH . "/models/post.php");
 
    <div class="container-fluid padding">
       <div class="row padding justify-content-center">
-         <div class="col-md-10">
+         <div class="col-lg-10">
 
             <h6 class="text-center">ESPACE ADMMINISTRATION – TOUS LES ÉPISODES</h6>
+            <a class="btn btn-secondary btn-comment" href="view-comments.php">Gérer les commentaires</a>
+
             <table class="table table-hover">
                <thead class="thead-dark">
                   <tr>
-                     <th>Titre</th>
-                     <th class="sm-table">Résumé</th>
-                     <th class="sm-table">Créé le</th>
-                     <th>Action</th>
+                     <th scope="col" class="table-episode">Titre</th>
+                     <th scope="col" class="sm-table ">Résumé</th>
+                     <th scope="col" class="sm-table ">Créé le</th>
+                     <th scope="col">Action</th>
                   </tr>
                </thead>
                <tbody>
                   <?php foreach($posts->getPost() as $post) { ?>
                   <tr>
                      <td><?php echo $post['title']; ?></td>
-                     <td class="sm-table"><?php echo $post['excerpt']; ?></td>
-                     <td class="sm-table">
+                     <td class="sm-table "><?php echo $post['excerpt']; ?></td>
+                     <td class="sm-table ">
                         <?php echo $post['created_at']; ?><br> 
                         <span class="updatedAt-dashboard"><?php if ($post['updated_at'] !== null) {
                            echo "Mise à jour le " . $post['updated_at']; 

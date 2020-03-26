@@ -26,4 +26,10 @@ class Comment {
       $result = $checkComments->num_rows;
       return $result;
    }
+
+   public function getPendingComments() {
+      $sql = "SELECT * FROM comments WHERE status=0 ORDER BY published_at DESC";
+      $result = $this->db->query($sql);
+      return $result;
+   }
 }
