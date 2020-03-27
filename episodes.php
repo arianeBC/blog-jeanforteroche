@@ -19,18 +19,18 @@ include( ROOT_PATH . "/models/post.php");
          <div class="container-fluid padding">
             <div class="row welcome text-center">
                <div class="col-12">
-                  <h1 class="display-4">Billet simple pour l'Alaska</h1>
+                  <h1 class="display-4">BILLET SIMPLE POUR L'ALASKA</h1>
                </div>
             </div>
          </div>
 
-         <div class="container-fluid padding">
+         <div class="container-fluid padding card-page">
             <div class="row padding episode-row">
                <?php foreach($posts->getPost() as $post) { ?>
 
                   <div class="col-md-4">
                      <div class="card style="width: 300px;">
-                        <img src="public/images/<?php echo $post['image']; ?>" alt="Aperçu de l'épisode" class="card-img-top">
+                        <img src="public/images/<?php echo $post['image']; ?>" alt="Aperçu de l'épisode" class="card-img-episodes">
                         <div class="card-body d-flex flex-column">
                            <h4 class="card-title"><?php echo $post['title']; ?></h4>
                            <p class="card-text"><?php echo $post['excerpt']; ?></p>

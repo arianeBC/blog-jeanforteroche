@@ -23,19 +23,18 @@ include( ROOT_PATH . "/models/comment.php");
          <div class="container-fluid padding">
             <div class="row welcome text-center">
                <div class="col-12">
-                  <h1 class="display-4">Billet simple pour l'Alaska</h1>
+                  <h1 class="display-4">BILLET SIMPLE POUR L'ALASKA</h1>
                </div>
             </div>
          </div>
 
-         <div class="container-fluid padding">
-         <?php 
-         foreach($posts->getSinglePost($_GET['slug']) as $post) { ?>
-
+         <div class="container-fluid padding card-page">
             <div class="row padding justify-content-center">
+               <?php foreach($posts->getSinglePost($_GET['slug']) as $post) { ?>
+            
                <div class="col-md-11 col-lg-10">
-                  <div class="card page">
-                     <img class="episode-img" src="public/images/<?php echo $post['image']; ?>" alt="Aperçu de l'épisode" class="card-img-top">
+                  <div class="card">
+                     <img src="public/images/<?php echo $post['image']; ?>" alt="Aperçu de l'épisode" class="card-img-top">
                      <div class="card-body">
                         <h4 class="card-title"><?php echo $post['title']; ?></h4> 
                         <p class="card-text author-date">
@@ -48,7 +47,8 @@ include( ROOT_PATH . "/models/comment.php");
                            ?>
                         </p>
                         <p class="card-text"><?php echo htmlspecialchars_decode( $post['content'] ); ?></p>
-         <?php } ?>
+
+               <?php } ?>
 
                         <h4 class="card-title comment-title">Commentaires (<?php echo $comments->countComments($_GET['slug']); ?>)</h4>
          <?php foreach($comments->getCommentBySlug($_GET['slug']) as $comment) { ?>

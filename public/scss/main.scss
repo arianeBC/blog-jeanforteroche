@@ -4,6 +4,7 @@
 @import "./layout/layout";
 @import "./pages/author";
 @import "./pages/episode";
+@import "./pages/episodes";
 @import "./pages/login";
 @import "./pages/dashboard";
 
@@ -25,28 +26,6 @@
 .background {
    width: 100%;
    height: 60vh;
-}
-
-/*============EPISODES LIST============*/
-#episodes h1 {
-   padding-top: 3rem;
-   font-size: 2.5rem;
-}
-.page-link {
-   color: $black;
-   border-color: $primary-color;
-   &:hover,
-   &:focus {
-      color: $black;
-      border-color: $primary-color;
-      background-color: $primary-color;
-      outline: none!important;
-      box-shadow: none!important;
-   }
-}
-.arrow {
-   padding: .5rem 1rem .5rem 1rem;
-   border: none;
 }
 
 /*============SOCIAL ICONS============*/
@@ -93,7 +72,7 @@
 }
 /*============MEDIA QUERIES============*/
 @media (min-width: 993px) {
-   .episode-img {
+   .card-img-top {
       display: none;
    }
    .episode-row {
@@ -152,11 +131,11 @@
    #author img {
       margin-bottom: 2rem;
    }
-   #episode .display-4 {
-      margin-top: -26vh;
+   #episode h1 {
+      margin-top: -25vh;
       font-size: 1.6rem;
    }
-   .card.page {
+   .card-page {
       margin-top: -22vh;
    }
    .dashboard-name {
@@ -187,12 +166,15 @@
    #author {
       margin-top: -35vh;
    }
-   #episode .display-4 {
-      margin-top: -36vh;
-      font-size: 1.1rem;
+   #episode h1 {
+      margin-top: -35vh;
+      // font-size: 1.1rem;
    }
-   .card.page {
-      margin-top: -33vh;
+   .card-page {
+      margin-top: -30vh;
+   }
+   .card-img-top {
+      height: auto;
    }
    .social a {
       font-size: 1.9rem;
@@ -221,6 +203,11 @@
    }
    .table-action {
       max-width: 100px;
+   }
+   .avatar-img {
+      margin: 0rem .2rem 0rem -1rem;
+      width: 20px;
+      border-radius: 50%;
    }
 }
 

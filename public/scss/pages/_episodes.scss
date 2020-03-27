@@ -1,0 +1,20 @@
+.card-img-episodes {
+   width: 100%;
+   height: 100%;
+}
+.page-link {
+   color: $black;
+   border-color: $primary-color;
+   &:hover,
+   &:focus {
+      color: $black;
+      border-color: $primary-color;
+      background-color: $primary-color;
+      outline: none!important;
+      box-shadow: none!important;
+   }
+}
+.arrow {
+   padding: .5rem 1rem .5rem 1rem;
+   border: none;
+}
