@@ -14,8 +14,8 @@ class Post {
       return $result;
    }
 
-   public function getPost() {
-      $limit = 6;
+   public function getPostsLimit($limit) {
+      // $limit = 6;
       if(isset($_GET['page'])) {
          $page = $_GET['page'];
       } else {
@@ -24,6 +24,12 @@ class Post {
       $start = ($page-1)*$limit;
 
       $sql    = "SELECT * FROM posts ORDER BY created_at DESC LIMIT $start, $limit";
+      $result = $this->db->query($sql);
+      return $result;
+   }
+
+   public function getPost() {
+      $sql    = "SELECT * FROM posts ORDER BY created_at DESC";
       $result = $this->db->query($sql);
       return $result;
    }

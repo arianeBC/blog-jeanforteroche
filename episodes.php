@@ -26,7 +26,7 @@ include( ROOT_PATH . "/models/post.php");
 
          <div class="container-fluid padding card-page">
             <div class="row padding episode-row">
-               <?php foreach($posts->getPost() as $post) { ?>
+               <?php foreach($posts->getPostsLimit(6) as $post) { ?>
 
                   <div class="col-md-4">
                      <div class="card style="width: 300px;">
