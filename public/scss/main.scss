@@ -79,7 +79,14 @@
    color: $primary-color;
    padding-right: .6rem;
 }
-
+.fa-arrow-left,
+.fa-arrow-right {
+   color: $primary-color;
+   padding-top: .2rem;
+   &:hover {
+      color: $light-black;
+   }
+}
 /*============MEDIA QUERIES============*/
 @media (min-width: 993px) {
    .episode-img {

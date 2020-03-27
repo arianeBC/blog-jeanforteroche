@@ -588,6 +588,17 @@ hr.light-100 {
   padding-right: .6rem;
 }
 
+.fa-arrow-left,
+.fa-arrow-right {
+  color: #b7bf9b;
+  padding-top: .2rem;
+}
+
+.fa-arrow-left:hover,
+.fa-arrow-right:hover {
+  color: #3f3f3f;
+}
+
 /*============MEDIA QUERIES============*/
 @media (min-width: 993px) {
   .episode-img {
