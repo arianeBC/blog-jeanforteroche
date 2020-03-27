@@ -545,6 +545,11 @@ hr.light-100 {
           box-shadow: none !important;
 }
 
+.arrow {
+  padding: .5rem 1rem .5rem 1rem;
+  border: none;
+}
+
 /*============SOCIAL ICONS============*/
 .social a {
   font-size: 4.5rem;
