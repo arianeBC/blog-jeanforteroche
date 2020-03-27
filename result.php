@@ -3,6 +3,7 @@ require_once("config.php");
 include( ROOT_PATH . "/session.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/post.php");
+include( ROOT_PATH . "/models/comment.php");
 ?>
 
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
@@ -12,6 +13,7 @@ include( ROOT_PATH . "/models/post.php");
 
    <?php include( ROOT_PATH . "/includes/header.php"); ?>
    <?php $posts = new Post($db); ?>
+   <?php $comments = new Comment($db); ?>
 
    <div class="container-fluid padding">
       <div class="row text-right">
@@ -34,7 +36,7 @@ include( ROOT_PATH . "/models/post.php");
          <div class="col-lg-10">
 
             <h6 class="text-center">ESPACE ADMMINISTRATION – TOUS LES ÉPISODES</h6>
-            <a class="btn btn-secondary btn-comment" href="view-comments.php">Gérer les commentaires</a>
+            <a class="btn btn-secondary btn-comment" href="view-comments.php">Commentaires en attente (<?php echo $comments->countPendingComments(); ?>)</a>
 
             <table class="table table-hover">
                <thead class="thead-dark">

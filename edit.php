@@ -13,6 +13,11 @@
 
    <?php
    if(isset($_POST['btnUpdate'])) {
+
+
+
+
+      
       $updated_at = date("Y-m-d");
       $result = $posts->updatePost($_POST['title'], $_POST['excerpt'], $_POST['content'], $updated_at, $_GET['slug']);
       if($result == TRUE) {

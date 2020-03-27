@@ -8,22 +8,15 @@ class Comment {
       $this->db = $db;
    }
 
-   public function comment($name, $email, $comment, $published_at, $slug, $status) {
-      $sql = "INSERT INTO comments(name, email, comment, published_at, slug, status) VALUES ('$name', '$email', '$comment', '$published_at', '$slug', '$status')";
-      $result = $this->db->query($sql);
-      return $result;
-   }
-
    public function getCommentBySlug($slug) {
       $sql = "SELECT * FROM comments WHERE slug='$slug' AND status=1 ORDER BY published_at DESC";
       $result = $this->db->query($sql);
       return $result;
    }
 
-   public function countComments($slug) {
-      $sql = "SELECT * FROM comments WHERE slug='$slug' AND status=1 ORDER BY published_at DESC";
-      $checkComments = $this->db->query($sql);
-      $result = $checkComments->num_rows;
+   public function comment($name, $email, $comment, $published_at, $slug, $status) {
+      $sql = "INSERT INTO comments(name, email, comment, published_at, slug, status) VALUES ('$name', '$email', '$comment', '$published_at', '$slug', '$status')";
+      $result = $this->db->query($sql);
       return $result;
    }
 
@@ -33,7 +26,7 @@ class Comment {
       return $result;
    }
 
-   public function updateComment($id) {
+   public function approveComment($id) {
       $sql = "UPDATE comments SET status=1 WHERE comments.id_comment='$id'";
       $result = $this->db->query($sql);
       return $result;
@@ -42,6 +35,20 @@ class Comment {
    public function deleteComment($id) {
       $sql = "DELETE FROM comments WHERE comments.id_comment='$id'";
       $result = $this->db->query($sql);
+      return $result;
+   }
+
+   public function countComments($slug) {
+      $sql = "SELECT * FROM comments WHERE slug='$slug' AND status=1";
+      $checkComments = $this->db->query($sql);
+      $result = $checkComments->num_rows;
+      return $result;
+   }
+
+   public function countPendingComments() {
+      $sql = "SELECT * FROM comments WHERE status=0";
+      $checkPendings = $this->db->query($sql);
+      $result = $checkPendings->num_rows;
       return $result;
    }
 }

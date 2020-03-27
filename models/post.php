@@ -1,5 +1,5 @@
 <?php require_once("config.php"); ?>
-<?php require_once( ROOT_PATH . "/includes/functions.php"); ?>
+<!-- require_once( ROOT_PATH . "/includes/functions.php"); ?> -->
 
 <?php 
 class Post {

@@ -53,7 +53,7 @@ $comments = new Comment($db);
 
                   <?php
                   if(isset($_POST['approve'])) {
-                     $result = $comments->updateComment($_POST['approveId']);
+                     $result = $comments->approveComment($_POST['approveId']);
                      if($result == TRUE) {
                         echo "<div class='text-center alert alert-success'>Commentaire approuvé</div>";
                      } else {
