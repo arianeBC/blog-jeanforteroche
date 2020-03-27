@@ -1,5 +1,4 @@
 <?php require_once("config.php"); ?>
-<!-- require_once( ROOT_PATH . "/includes/functions.php"); ?> -->
 
 <?php 
 class Post {
@@ -45,17 +44,15 @@ class Post {
    }
 
    public function updatePost($title, $excerpt, $content, $updated_at, $slug) {
-      $newImage = $_FILE["image"]["name"];
-      if(!empty($newImage)) {
-         $image  = uploadImage();
-         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', image='$image', updated_at='$updated_at' WHERE posts.slug = '$slug'";
-         $result = $this->db->query($sql);
-         return $result;
-      } else {
-         $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', updated_at='$updated_at' WHERE posts.slug = '$slug'";
-         $result = $this->db->query($sql);
-         return $result;
-      }
+      $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', updated_at='$updated_at' WHERE posts.slug = '$slug'";
+      $result = $this->db->query($sql);
+      return $result;
+   }
+
+   public function updatePostImage($title, $excerpt, $content, $image, $updated_at, $slug) {
+      $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', image='$image', updated_at='$updated_at' WHERE posts.slug = '$slug'";
+      $result = $this->db->query($sql);
+      return $result;
    }
 }
 

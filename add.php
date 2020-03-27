@@ -32,7 +32,7 @@
    <?php
    if(isset($_POST['btnSubmit'])) {
 
-      if( !empty($_POST['title']) && !empty($_POST['excerpt']) && !empty($_POST['content'])) {
+      if( !empty($_POST['title']) && !empty($_POST['excerpt']) && !empty($_POST['content']) && !empty(uploadImage())) {
          $id_user    = $_SESSION['userid'];
          $title      = strip_tags($_POST['title']);
          $excerpt    = strip_tags($_POST['excerpt']);
@@ -56,7 +56,7 @@
             echo "<div class='text-center alert alert-success'>Votre épisode à été ajouté</div>";
          }
       } else {
-         echo "<div class='text-center alert alert-danger'>Tous les champs sont requis</div>";
+         echo "<div class='text-center alert alert-danger'>Votre épisode n'a pas pu être ajouté</div>";
       }
    }
    ?>

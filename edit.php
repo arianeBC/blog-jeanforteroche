@@ -1,6 +1,7 @@
 <?php require_once("config.php"); ?>
 <?php require_once( ROOT_PATH . "/includes/head_section.php"); ?>
 <?php include( ROOT_PATH . "/models/post.php"); ?>
+<?php include( ROOT_PATH . "/includes/functions.php"); ?>
 
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
 </head>
@@ -14,27 +15,34 @@
    <?php
    if(isset($_POST['btnUpdate'])) {
 
-
-
-
-      
+      $imagename = $_FILE["image"]["name"];
       $updated_at = date("Y-m-d");
-      $result = $posts->updatePost($_POST['title'], $_POST['excerpt'], $_POST['content'], $updated_at, $_GET['slug']);
-      if($result == TRUE) {
-         echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
+      if(!empty($imagename)) {
+         $result1 = $posts->updatePostImage($_POST['title'], $_POST['excerpt'], $_POST['content'], uploadImage(), $updated_at, $_GET['slug']);
+         if($result1 == TRUE) {
+            echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
+         } else {
+            echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
+         }
       } else {
-         echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
+         $result2 = $posts->updatePost($_POST['title'], $_POST['excerpt'], $_POST['content'], $updated_at, $_GET['slug']);
+         if($result2 == TRUE) {
+            echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
+         } else {
+            echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
+         }
       }
+
    }
    ?>
-   
+
    <div class="container-fluid padding addpost">
       <div class="row padding justify-content-center">
 
          <?php foreach($posts->getSinglePost($_GET['slug']) as $post) { ?>
 
          <div class="col-lg-6 col-md-8">
-            <form action="add.php" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST" enctype="multipart/form-data">
             <h6 class="text-center">ESPACE ADMMINISTRATION – MODIFIER UN ÉPISODE</h6>
                <div class="card">
                   <div class="card-header">Modifier un épisode</div>
