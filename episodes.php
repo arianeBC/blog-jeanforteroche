@@ -42,7 +42,30 @@ include( ROOT_PATH . "/models/post.php");
                <?php } ?>
             </div>
          </div>
+
+         <div class="container-fluid padding">
+            <div class="row text-center">
+               <div class="col-12 text-center">
+               <!-- pagination -->
+               <?php 
+               $sql = "SELECT COUNT(id_post) FROM posts";
+               $result = $db->query($sql);
+               $row = $result->fetch_row();
+               $totalRecords = $row[0];
+               // divided by limit of posts by pages & ceil for whole nb 
+               $totalPages = ceil($totalRecords/6);
+               $pageLink = "<ul class='pagination justify-content-center'>";
+               for($i=1; $i<=$totalPages; $i++) {
+                  $pageLink .= "<a class='page-link' href='episodes.php?page=" .$i. "'>" .$i. "</a>";
+               }
+               echo $pageLink."</ul>";
+               ?>
+               </div>
+            </div>
+         </div>
       </section>
+
+
 
       <?php include( ROOT_PATH . "/includes/social-icons-sm.php") ?>
       <?php include( ROOT_PATH . "/includes/footer.php") ?>

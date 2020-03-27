@@ -531,6 +531,20 @@ hr.light-100 {
   font-size: 2.5rem;
 }
 
+.page-link {
+  color: #272727;
+  border-color: #b7bf9b;
+}
+
+.page-link:hover, .page-link:focus {
+  color: #272727;
+  border-color: #b7bf9b;
+  background-color: #b7bf9b;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
 /*============SOCIAL ICONS============*/
 .social a {
   font-size: 4.5rem;

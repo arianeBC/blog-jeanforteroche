@@ -15,7 +15,15 @@ class Post {
    }
 
    public function getPost() {
-      $sql    = "SELECT * FROM posts ORDER BY created_at DESC";
+      $limit = 6;
+      if(isset($_GET['page'])) {
+         $page = $_GET['page'];
+      } else {
+         $page = 1;
+      }
+      $start = ($page-1)*$limit;
+
+      $sql    = "SELECT * FROM posts ORDER BY created_at DESC LIMIT $start, $limit";
       $result = $this->db->query($sql);
       return $result;
    }
