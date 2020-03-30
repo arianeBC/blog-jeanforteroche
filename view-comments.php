@@ -10,7 +10,7 @@ $comments = new Comment($db);
 
 <body>
 
-   <?php include( ROOT_PATH . "/includes/header.php"); ?>
+   <?php include( ROOT_PATH . "/includes/header-admin.php"); ?>
 
    <div class="container-fluid dashboard-page">
       <div class="row padding justify-content-center">
@@ -24,7 +24,6 @@ $comments = new Comment($db);
                      <th scope="col">Name</th>
                      <th scope="col" class="sm-table">Email</th>
                      <th scope="col">Commentaire</th>
-                     <!-- <th scope="col">Créé le</th> -->
                      <th scope="col" class="table-action">Action</th>
                   </tr>
                </thead>
@@ -56,17 +55,13 @@ $comments = new Comment($db);
                      $result = $comments->approveComment($_POST['approveId']);
                      if($result == TRUE) {
                         echo "<div class='text-center alert alert-success'>Commentaire approuvé</div>";
-                     } else {
-                        echo "<div class='text-center alert alert-danger'>Belle crotte</div>";
                      }
                   }
 
                   if(isset($_POST['delete'])) {
                      $result = $comments->deleteComment($_POST['deleteId']);
                      if($result == TRUE) {
-                        echo "<div class='text-center alert alert-success'>Commentaire supprimé</div>";
-                     } else {
-                        echo "<div class='text-center alert alert-danger'>Belle crotte</div>";
+                        echo "<div class='text-center alert alert-danger'>Commentaire supprimé</div>";
                      }
                   }
                   ?>

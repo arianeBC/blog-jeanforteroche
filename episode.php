@@ -4,7 +4,7 @@ require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/post.php");
 include( ROOT_PATH . "/models/comment.php");
 ?>
-   <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
+   <title>Jean Forteroche – Épisode de "Billet simple pour l'Alaska"</title>
 </head>
 
 <body>
@@ -14,10 +14,8 @@ include( ROOT_PATH . "/models/comment.php");
    include( ROOT_PATH . "/includes/background.php");
    ?>
 
-   <?php 
-   $posts = new Post($db); 
-   $comments = new Comment($db);
-   ?>
+   <?php $posts = new Post($db); ?>
+   <?php $comments = new Comment($db); ?>
 
       <section id="episode">
          <div class="container-fluid padding">
@@ -49,7 +47,6 @@ include( ROOT_PATH . "/models/comment.php");
                         <p class="card-text"><?php echo htmlspecialchars_decode( $post['content'] ); ?></p>
 
                <?php } ?>
-
                         <h4 class="card-title comment-title">Commentaires (<?php echo $comments->countComments($_GET['slug']); ?>)</h4>
          <?php foreach($comments->getCommentBySlug($_GET['slug']) as $comment) { ?>
                         <div class="media comment-section">
@@ -57,17 +54,31 @@ include( ROOT_PATH . "/models/comment.php");
                               <img class="avatar-img" src="public/images/avatar.png">
                            </div>
                            <div class="media-body comment-body">
-                              <strong><?php echo $comment['name']; ?></strong>
-                              <p><?php echo $comment['comment']; ?></p> 
-                              <span class="comment-date float-right"><?php echo "Publié le ". $comment['published_at']; ?></span><br>
+                              <form action="" method="POST">
+                                 <input type="hidden" name="approveId" value="<?php echo $comment['id_comment']; ?>">
+                                 <strong><?php echo $comment['name']; ?></strong>
+                                 <p><?php echo $comment['comment']; ?></p> 
+                                 <span class="comment-date float-right"><?php echo "Publié le ". $comment['published_at']; ?></span>
+                                 <a href="#"><button type="submit" title="Signaler ce commentaire" name="commentFlag" class="btn float-left comment-flag"><i class="far fa-flag"></i></button></a>
+                              </form>
                            </div>
                         </div> 
          <?php } ?>
+
+         <?php if(isset($_POST['commentFlag'])) {
+            if(isset($_POST['commentFlag'])) {
+               $result = $comments->updateComment($_POST['approveId']);
+               if($result == TRUE) {
+                  echo "<div class='text-center alert alert-success'>Vous avez signalé ce commentaire.</div>";
+               }
+            }
+         } ?>
+
          <?php 
          if(isset($_POST['btnComment'])) {
             if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comment'])) {
                $published_at = date("Y-m-d");
-               $status = 0;
+               $status = 1;
                $result = $comments->comment(strip_tags($_POST['name']), strip_tags($_POST['email']), strip_tags($_POST['comment']), $published_at, $_GET['slug'], $status);
                if ($result == TRUE) {
                   echo "<div class='text-center alert alert-success'>Votre commentaire à été ajouté</div>";

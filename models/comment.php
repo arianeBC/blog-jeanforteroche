@@ -9,7 +9,7 @@ class Comment {
    }
 
    public function getCommentBySlug($slug) {
-      $sql = "SELECT * FROM comments WHERE slug='$slug' AND status=1 ORDER BY published_at DESC";
+      $sql = "SELECT * FROM comments WHERE slug='$slug' ORDER BY published_at DESC";
       $result = $this->db->query($sql);
       return $result;
    }
@@ -28,6 +28,12 @@ class Comment {
 
    public function approveComment($id) {
       $sql = "UPDATE comments SET status=1 WHERE comments.id_comment='$id'";
+      $result = $this->db->query($sql);
+      return $result;
+   }
+
+   public function updateComment($id) {
+      $sql = "UPDATE comments SET status=0 WHERE comments.id_comment='$id'";
       $result = $this->db->query($sql);
       return $result;
    }

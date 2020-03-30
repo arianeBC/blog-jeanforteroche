@@ -14,10 +14,10 @@
                   <a href="episodes.php" class="nav-link">Les épisodes</a>
                </li> -->
                <li class="nav-item">
-                  <a href="author.php" class="nav-link">L'auteur</a>
+                  <a href="add.php" class="nav-link">Ajouter</a>
                </li>
                <li class="nav-item">
-                  <a href="episodes.php" class="nav-link">Les épisodes</a>
+                  <a href="result.php" class="nav-link">Tableau de bord</a>
                </li>
 <?php if(!empty($_SESSION['login'])) { ?> 
                <li class="nav-item navItemConnexion">

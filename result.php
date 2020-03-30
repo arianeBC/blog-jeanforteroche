@@ -11,7 +11,7 @@ include( ROOT_PATH . "/models/comment.php");
 
 <body>
 
-   <?php include( ROOT_PATH . "/includes/header.php"); ?>
+   <?php include( ROOT_PATH . "/includes/header-admin.php"); ?>
    <?php $posts = new Post($db); ?>
    <?php $comments = new Comment($db); ?>
 
@@ -36,7 +36,7 @@ include( ROOT_PATH . "/models/comment.php");
          <div class="col-lg-10">
 
             <h6 class="text-center">ESPACE ADMMINISTRATION – TOUS LES ÉPISODES</h6>
-            <a class="btn btn-secondary btn-comment" href="view-comments.php">Commentaires en attente (<?php echo $comments->countPendingComments(); ?>)</a>
+            <a class="btn btn-secondary btn-comment" href="view-comments.php">Commentaires signalés (<?php echo $comments->countPendingComments(); ?>)</a>
 
             <table class="table table-hover">
                <thead class="thead-dark">
@@ -59,7 +59,7 @@ include( ROOT_PATH . "/models/comment.php");
                         } ?></span>
                      </td>
                      <td>
-                        <a href="view.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-success btn-sm">Afficher</button></a>
+                        <a href="episode.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-success btn-sm">Afficher</button></a>
                         <a href="edit.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-primary btn-sm">Modifier</button></a>
                         <a href="delete.php?slug=<?php echo $post['slug']; ?>"><button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button></a>
                      </td>

@@ -1,9 +1,9 @@
 <?php 
 require_once("config.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
-include( ROOT_PATH . "/models/post.php");
+// include( ROOT_PATH . "/models/post.php");
 ?>
-   <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
+   <title>Jean Forteroche – Biographie de l'auteur</title>
 </head>
 
 <body>

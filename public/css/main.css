@@ -429,11 +429,6 @@ hr.light-100 {
   height: 100%;
 }
 
-.card-img-episodes {
-  width: 100%;
-  height: 100%;
-}
-
 .comment-title {
   padding-top: 2.2rem;
 }
@@ -464,6 +459,21 @@ hr.light-100 {
 .btn-comment {
   margin-top: 1rem;
   margin-bottom: .6rem;
+}
+
+.comment-flag {
+  padding-left: 0rem;
+  font-size: 12px;
+  outline: none;
+  border: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  color: rgba(63, 63, 63, 0.5);
+}
+
+.comment-flag:hover, .comment-flag:focus {
+  color: #3f3f3f;
+  outline: none;
 }
 
 .card-img-episodes {

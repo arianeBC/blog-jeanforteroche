@@ -9,7 +9,7 @@ class Post {
    }
 
    public function addPost($slug, $id_user, $title, $excerpt, $content, $image, $created_at) {
-      $sql    = "INSERT INTO posts (slug, id_user, title, excerpt, content, image, created_at) VALUES ('$slug', '$id_user', '$title', '$excerpt', '$content', '$image', '$created_at')";
+      $sql    = "INSERT INTO posts (slug, id_user, title, excerpt, content, image, created_at) VALUES ('$slug', '$id_user', '".addslashes($title)."', '".addslashes($excerpt)."', '".addslashes($content)."', '$image', '$created_at')";
       $result = $this->db->query($sql);
       return $result;
    }
@@ -58,13 +58,13 @@ class Post {
    }
 
    public function updatePost($title, $excerpt, $content, $updated_at, $slug) {
-      $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', updated_at='$updated_at' WHERE posts.slug = '$slug'";
+      $sql    = "UPDATE posts SET title='".addslashes($title)."', excerpt='".addslashes($excerpt)."', content='".addslashes($content)."', updated_at='$updated_at' WHERE posts.slug = '$slug'";
       $result = $this->db->query($sql);
       return $result;
    }
 
    public function updatePostImage($title, $excerpt, $content, $image, $updated_at, $slug) {
-      $sql    = "UPDATE posts SET title='$title', excerpt='$excerpt', content='$content', image='$image', updated_at='$updated_at' WHERE posts.slug = '$slug'";
+      $sql    = "UPDATE posts SET title='".addslashes($title)."', excerpt='".addslashes($excerpt)."', content='".addslashes($content)."', image='$image', updated_at='$updated_at' WHERE posts.slug = '$slug'";
       $result = $this->db->query($sql);
       return $result;
    }
