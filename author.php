@@ -25,7 +25,6 @@ require_once( ROOT_PATH . "/includes/head_section.php");
                   <p>J'ai vingt-quatre ans. Je n'ai plus toutes mes dents. Et cela m'écœure.</p>
                   <p>Je ne me suis pas marié une seule fois encore. Les femmes ne veulent pas se marier avec moi. Si elles avaient voulu, je me serais marié tous les jours et, aujourd'hui, j'aurais à peu près 5 768 enfants. S'il n'y avait pas d'enfants sur la Terre, il n'y aurait rien de beau.</p>
                   <br>
-
                </div>
                <div class="col-lg-4 text-center">
                   <img src="public/images/jean-forteroche-s.jpg" alt="Je me fais passer pour l'écrivain Jean Forteroche mais en réalité je suis Réjean Ducharme">
