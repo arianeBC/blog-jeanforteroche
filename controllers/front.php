@@ -1,5 +1,5 @@
 <?php
-
+require_once "controller/episode.php";
 /**
  * 
    */
@@ -23,12 +23,32 @@ class Front {
    }
 
    private function home() {
-      $this->html = "lmkldfkfmlkdfslmfksdlfk";
+      $vue = new View(
+         [
+         "{{ titre }}" => "bienvenue",
+         "{{ linkLoginLogout }}" => "",
+         "{{ textLoginLogout }}" => "connexion",
+         "{{ contenu }}" => "---"
+      ],
+      "main"
+      );
+      $this->html = $vue->html;
    }
 
    private function chapitre() {
-      $this->html = "chapitre : ";
-      if (isset($this->uri[1])) $this->html .= $this->uri[1];
-   }
+    // http://monsite.com/chapitre/un-super-ete
+      $chapter = new Epidode(["readFromSlug"=>$this->uri[1]]);
+      $comments = new Comments(["readFromId"=>$chapter->id]);
+      $vue = new View(
+      [
+         "{{ titre }}" => $chapter->title,
+         "{{ linkLoginLogout }}" => "",
+         "{{ textLoginLogout }}" => "connexion",
+         "{{ contenu }}" => $chapter->html.$comments->html
+      ],
+      "main"
+      );
+      $this->html = $vue->html;
 
+   }
 }

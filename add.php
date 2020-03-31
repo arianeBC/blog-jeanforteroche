@@ -4,7 +4,7 @@
 <?php include( ROOT_PATH . "/models/post.php"); ?>
 <?php include( ROOT_PATH . "/includes/functions.php"); ?>
 
-   <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
+   <title>Jean Forteroche – $page</title>
 </head>
 
 <body>
@@ -16,22 +16,20 @@
          <div class="col-12">
             <p class="dashboard-name">
                <?php 
-               if(!empty($_SESSION['login'])) {
-                  echo "Bienvenue {$_SESSION['username']} 📖";
-               } else {
-                  echo "Vous n'êtes pas connecté";
-               }
+               // if(!empty($_SESSION['login'])) {
+               //    echo "Bienvenue {$_SESSION['username']} 📖";
+               // } else {
+               //    echo "Vous n'êtes pas connecté";
+               // }
                ?>
             </p>
          </div>
       </div>
    </div>
 
-   <?php $posts = new Post($db); ?>
+   <!-- $posts = new Post($db); -->
 
-   <?php
-   if(isset($_POST['btnSubmit'])) {
-
+   <!-- if(isset($_POST['btnSubmit'])) {
       if( !empty($_POST['title']) && !empty($_POST['excerpt']) && !empty($_POST['content']) && !empty(uploadImage())) {
          $id_user    = $_SESSION['userid'];
          $title      = strip_tags($_POST['title']);
@@ -58,12 +56,12 @@
       } else {
          echo "<div class='text-center alert alert-danger'>Votre épisode n'a pas pu être ajouté</div>";
       }
-   }
-   ?>
+   } -->
+
    
    <div class="container-fluid padding addpost">
       <div class="row padding justify-content-center">
-         <div class="col-lg-6 col-md-8">
+         <!-- <div class="col-lg-6 col-md-8">
             <form action="add.php" method="POST" enctype="multipart/form-data">
             <h6 class="text-center">ESPACE ADMMINISTRATION – AJOUTER UN ÉPISODE</h6>
                <div class="card">
@@ -86,17 +84,18 @@
                      </div>
 
                      <div class="form-group">
-                     <hr>
-                     <label for="image">Image</label><br>
-                     <input type="file" name="image" class="form-control btn-img"/>
+                        <hr>
+                        <label for="image">Image</label><br>
+                        <input type="file" name="image" class="form-control btn-img"/>
                      </div>
                      
                      <div class="form-group float-right">
                         <button type="submit" name="btnSubmit" class="btn btn-outline-secondary btn-lg">Ajouter</button>
                      </div>
-                  </form>
+
+                  </div>
                </div>
-            </div>
-         </div>
+            </form>
+         </div> -->
       </div>
    </div>
