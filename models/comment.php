@@ -1,5 +1,6 @@
-<?php require_once("config.php"); ?>
-<?php
+<?php 
+include "db.php";
+$db = new Db();
 
 class Comment {
    private $db;

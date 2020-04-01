@@ -1,6 +1,7 @@
-<?php require_once("config.php"); ?>
-
 <?php 
+include "db.php";
+$db = new Db();
+
 class Post {
    private $db;
 
@@ -15,14 +16,12 @@ class Post {
    }
 
    public function getPostsLimit($limit) {
-      // $limit = 6;
       if(isset($_GET['page'])) {
          $page = $_GET['page'];
       } else {
          $page = 1;
       }
-      $start = ($page-1)*$limit;
-
+      $start  = ($page-1)*$limit;
       $sql    = "SELECT * FROM posts ORDER BY created_at DESC LIMIT $start, $limit";
       $result = $this->db->query($sql);
       return $result;

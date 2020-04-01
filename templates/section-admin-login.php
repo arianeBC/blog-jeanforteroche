@@ -1,5 +1,3 @@
-<!-- include "header.php"; -->
-
    <section id="login">
       <div class="container-fluid padding login">
          <div class="row padding justify-content-center">

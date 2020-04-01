@@ -26,6 +26,7 @@
 <!-- }  -->
                <h4 class="card-title comment-title">Commentaires ( {{ count-comment }})</h4>
                {{ added-commentflag-alert}}
+               {{ added-comment-successfully}}
 <!-- foreach($comments->getCommentBySlug($_GET['slug']) as $comment) {  -->
                <div class="media comment-section">
                   <div class="media-left media-top">
