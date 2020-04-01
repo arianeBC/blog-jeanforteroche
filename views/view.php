@@ -3,13 +3,11 @@
 /**
  * 
  */
-class View
-{
+class View {
    public $html;
 
-   public function __construct($data, $template)
-   {
-      if ( ! isset($data[0])) {
+   public function __construct($data, $template) {
+      if ( !isset($data[0]) ) {
          $this->html = $this->render($data, $template);
          return;
       }
@@ -17,10 +15,9 @@ class View
       foreach ($data as $key => $value) {
          # code...
       }
-
    }
 
-   private function render($data, $template){
+   private function render($data, $template) {
       return str_replace(
          array_keys($data),
          $data,

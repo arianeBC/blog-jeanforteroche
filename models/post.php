@@ -1,6 +1,7 @@
-<?php require_once("config.php"); ?>
-
 <?php 
+include "db.php";
+$db = new Db();
+
 class Post {
    private $db;
 
@@ -15,14 +16,12 @@ class Post {
    }
 
    public function getPostsLimit($limit) {
-      // $limit = 6;
       if(isset($_GET['page'])) {
          $page = $_GET['page'];
       } else {
          $page = 1;
       }
-      $start = ($page-1)*$limit;
-
+      $start  = ($page-1)*$limit;
       $sql    = "SELECT * FROM posts ORDER BY created_at DESC LIMIT $start, $limit";
       $result = $this->db->query($sql);
       return $result;
@@ -67,6 +66,30 @@ class Post {
       $sql    = "UPDATE posts SET title='".addslashes($title)."', excerpt='".addslashes($excerpt)."', content='".addslashes($content)."', image='$image', updated_at='$updated_at' WHERE posts.slug = '$slug'";
       $result = $this->db->query($sql);
       return $result;
+   }
+
+   public function pagination($postPerPage) {
+      $sql = "SELECT COUNT(id_post) FROM posts";
+      $result = $this->db->query($sql);
+      $row = $result->fetch_row();
+      $totalRecords = $row[0];
+      $totalPages = ceil($totalRecords/$postPerPage);
+      $pageLink = "<ul class='pagination justify-content-center'>";
+
+      $page = $_GET['page'];
+      if($page > 1) {
+         $pageLink .= "<a class='arrow' href='episodes.php?page=".($page-1)."'><i class='fas fa-arrow-left'></i></a>";
+      }
+
+      for($i=1; $i<=$totalPages; $i++) {
+         $pageLink .= "<a class='page-link' href='episodes.php?page=" .$i. "'>" .$i. "</a>";
+      }
+
+      if($page < $totalPages) {
+         $pageLink .= "<a class='arrow' href='episodes.php?page=".($page+1)."'><i class='fas fa-arrow-right'></i></a>";
+      }
+
+      echo $pageLink."</ul>";
    }
 }
 

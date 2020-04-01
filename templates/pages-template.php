@@ -9,7 +9,7 @@
          </figure>
       </section>
 
-      {{ author-episodes-or-episode }}
+      {{ section-author | section-ep-list | section-episode }}
 
       <section class="connect">
          <div class="container-fluid padding">
@@ -24,7 +24,7 @@
          </div>
       </section>
 
-      <!-- include "footer.php"; -->
+   <!-- include "footer.php"; -->
 
 </body>
 
