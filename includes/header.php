@@ -19,7 +19,7 @@
    <!-- JS, CSS -->
    <script type="text/javascript" src="public/js/main.js" defer></script>
    <link rel="stylesheet" href="../public/css/main.css">
-   <title>Jean Forteroche – {{ page-title }}</title>
+   <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
 </head>
 
 <body>

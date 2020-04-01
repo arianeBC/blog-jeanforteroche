@@ -7,7 +7,7 @@ class View {
    public $html;
 
    public function __construct($data, $template) {
-      if ( ! isset($data[0])) {
+      if ( !isset($data[0]) ) {
          $this->html = $this->render($data, $template);
          return;
       }

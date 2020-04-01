@@ -5,11 +5,11 @@
       <div class="col-12">
          <p class="dashboard-name">
 
-         {{ welcome-message-if-connected}}
+         {{ welcome-message }}
 
          </p>
       </div>
    </div>
 </div>
 
-{{ dashboard-commentsflag-addpost-or-editpost }}
+{{ section-admin-dashboard | section-admin-comment | section-admin-add | section-admin-edit }}

@@ -19,14 +19,14 @@
                   <p class="card-text author-date">
                      {{ user_name }}<br>
                      {{ created_at }}<br>
-                     {{ MISE À JOUR {{ updated_at }} }}<br>
+                     {{ updated_at }}<br>
                   </p>
                   <p class="card-text">{{ post-content }}</p>
                </div>
 <!-- }  -->
-               <h4 class="card-title comment-title">Commentaires ( {{ count-comment }})</h4>
-               {{ added-commentflag-alert}}
-               {{ added-comment-successfully}}
+               <h4 class="card-title comment-title">Commentaires ( {{ comment-count }})</h4>
+               {{ comment-flag-message }}
+               {{ add-comment-message }}
 <!-- foreach($comments->getCommentBySlug($_GET['slug']) as $comment) {  -->
                <div class="media comment-section">
                   <div class="media-left media-top">
@@ -68,30 +68,3 @@
       </div>
    </div>
 </section>
-
-
-<?php 
-// if(isset($_POST['commentFlag'])) {
-//    if(isset($_POST['commentFlag'])) {
-//       $result = $comments->updateComment($_POST['approveId']);
-//       if($result == TRUE) {
-//          echo "<div class='text-center alert alert-success'>Vous avez signalé ce commentaire.</div>";
-//       }
-//    }
-// } 
-?>
-
-<?php 
-// if(isset($_POST['btnComment'])) {
-//    if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comment'])) {
-//       $published_at = date("Y-m-d");
-//       $status = 1;
-//       $result = $comments->comment(strip_tags($_POST['name']), strip_tags($_POST['email']), strip_tags($_POST['comment']), $published_at, $_GET['slug'], $status);
-//       if ($result == TRUE) {
-//          echo "<div class='text-center alert alert-success'>Votre commentaire à été ajouté</div>";
-//       }
-//    } else {
-//       echo "<div class='text-center alert alert-danger'>Votre commentaire n'a pas pu être ajouté. Vérifiez que tous les champs soient remplis.</div>";
-//    }
-// }
-?>

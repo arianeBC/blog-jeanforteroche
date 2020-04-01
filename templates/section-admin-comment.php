@@ -45,19 +45,3 @@
 </body>
 
 </html>
-
-<?php
-// if(isset($_POST['approve'])) {
-//    $result = $comments->approveComment($_POST['approveId']);
-//    if($result == TRUE) {
-//       echo "<div class='text-center alert alert-success'>Commentaire approuvé</div>";
-//    }
-// }
-
-// if(isset($_POST['delete'])) {
-//    $result = $comments->deleteComment($_POST['deleteId']);
-//    if($result == TRUE) {
-//       echo "<div class='text-center alert alert-danger'>Commentaire supprimé</div>";
-//    }
-// }
-?>

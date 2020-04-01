@@ -1,3 +1,5 @@
+   {{ connect-user }}
+
    <section id="login">
       <div class="container-fluid padding login">
          <div class="row padding justify-content-center">
@@ -29,9 +31,3 @@
 </body>
 
 </html>
-
-<?php 
-   // if(isset($_POST['btnLogin'])) {
-   //    $user->login($_POST['login'], md5($_POST['pwd']));
-   // }
-?> 

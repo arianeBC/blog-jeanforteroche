@@ -5,7 +5,7 @@
          <div class="col-lg-6 col-md-8">
             <form action="#" method="POST" enctype="multipart/form-data">
             <h6 class="text-center">ESPACE ADMMINISTRATION – MODIFIER UN ÉPISODE</h6>
-            {{ edited-post-successfully }}
+            {{ edit-post-message }}
                <div class="card">
                   <div class="card-header">Modifier un épisode</div>
             <!-- foreach($posts->getSinglePost($_GET['slug']) as $post) { -->
@@ -46,28 +46,3 @@
 </body>
 
 </html>
-
-
-<?php
-// if(isset($_POST['btnUpdate'])) {
-
-//    $imagename = $_FILE["image"]["name"];
-//    $updated_at = date("Y-m-d");
-//    if(!empty($imagename)) {
-//       $result1 = $posts->updatePostImage($_POST['title'], $_POST['excerpt'], $_POST['content'], uploadImage(), $updated_at, $_GET['slug']);
-//       if($result1 == TRUE) {
-//          echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
-//       } else {
-//          echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
-//       }
-//    } else {
-//       $result2 = $posts->updatePost($_POST['title'], $_POST['excerpt'], $_POST['content'], $updated_at, $_GET['slug']);
-//       if($result2 == TRUE) {
-//          echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
-//       } else {
-//          echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
-//       }
-//    }
-
-// }
-?>

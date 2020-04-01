@@ -4,7 +4,7 @@
          <div class="col-lg-6 col-md-8">
             <form action="add.php" method="POST" enctype="multipart/form-data">
             <h6 class="text-center">ESPACE ADMMINISTRATION – AJOUTER UN ÉPISODE</h6>
-            {{ added-post-successfuly }}
+            {{ add-post-message }}
                <div class="card">
                   <div class="card-header">Ajouter un épisode</div>
                   <div class="card-body">
@@ -44,32 +44,3 @@
 </body>
 
 </html>
-
-<!-- if(isset($_POST['btnSubmit'])) {
-if( !empty($_POST['title']) && !empty($_POST['excerpt']) && !empty($_POST['content']) && !empty(uploadImage())) {
-   $id_user    = $_SESSION['userid'];
-   $title      = strip_tags($_POST['title']);
-   $excerpt    = strip_tags($_POST['excerpt']);
-   $content    = $_POST['content'];
-   $created_at = date("Y-m-d");
-   $slug       = createSlug($title);
-
-   $checkSlug = $db->query("SELECT * FROM posts WHERE slug = '$slug'");
-   $result    = $checkSlug->num_rows;
-
-   if($result > 0) {
-      foreach($checkSlug as $cslug) {
-         $newSlug = $slug.uniqid();
-      }
-      $record = $posts->addPost($newSlug, $id_user, $title, $excerpt, $content, uploadImage(), $created_at);
-   } else {
-      $record = $posts->addPost($slug, $id_user, $title, $excerpt, $content, uploadImage(), $created_at);
-   }
-
-   if($record == TRUE) {
-      echo "<div class='text-center alert alert-success'>Votre épisode à été ajouté</div>";
-   }
-} else {
-   echo "<div class='text-center alert alert-danger'>Votre épisode n'a pas pu être ajouté</div>";
-}
-} -->
