@@ -1,20 +1,4 @@
-<?php 
-require_once("config.php");
-require_once( ROOT_PATH . "/includes/head_section.php");
-include( ROOT_PATH . "/models/account.php");
-?>
-   <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
-</head>
-
-<body>
-
-   <?php include( ROOT_PATH . "/includes/header.php"); ?>
-   <?php $user = new Account($db); ?>
-   <?php 
-   if(isset($_POST['btnLogin'])) {
-      $user->login($_POST['login'], md5($_POST['pwd']));
-   }
-   ?> 
+<!-- include "header.php"; -->
 
    <section id="login">
       <div class="container-fluid padding login">
@@ -47,3 +31,9 @@ include( ROOT_PATH . "/models/account.php");
 </body>
 
 </html>
+
+<?php 
+   // if(isset($_POST['btnLogin'])) {
+   //    $user->login($_POST['login'], md5($_POST['pwd']));
+   // }
+?> 
