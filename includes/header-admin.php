@@ -33,3 +33,19 @@
       </div>
    </nav>
 </header>
+
+<div class="container-fluid padding">
+   <div class="row text-right">
+      <div class="col-12">
+         <p class="dashboard-name">
+            <?php 
+            if(!empty($_SESSION['login'])) {
+               echo "Bienvenue {$_SESSION['username']} 📖";
+            } else {
+               echo "Vous n'êtes pas connecté";
+            }
+            ?>
+         </p>
+      </div>
+   </div>
+</div>

@@ -2,38 +2,30 @@
 require_once("config.php"); 
 include( ROOT_PATH . "/models/post.php"); 
 include( ROOT_PATH . "/includes/functions.php"); 
-require_once( ROOT_PATH . "/includes/head_section.php")
-?>
+require_once( ROOT_PATH . "/includes/head_section.php");
+include( ROOT_PATH . "/includes/header-admin.php"); 
+$posts = new Post($db); 
 
-   <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
-</head>
-
-<body>
-
-   <?php 
-   include( ROOT_PATH . "/includes/header-admin.php"); 
-   $posts = new Post($db); 
-
-   if(isset($_POST['btnUpdate'])) {
-      $imagename = $_FILE["image"]["name"];
-      $updated_at = date("Y-m-d");
-      if(!empty($imagename)) {
-         $result1 = $posts->updatePostImage($_POST['title'], $_POST['excerpt'], $_POST['content'], uploadImage(), $updated_at, $_GET['slug']);
-         if($result1 == TRUE) {
-            echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
-         } else {
-            echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
-         }
+if(isset($_POST['btnUpdate'])) {
+   $imagename = $_FILE["image"]["name"];
+   $updated_at = date("Y-m-d");
+   if(!empty($imagename)) {
+      $result1 = $posts->updatePostImage($_POST['title'], $_POST['excerpt'], $_POST['content'], uploadImage(), $updated_at, $_GET['slug']);
+      if($result1 == TRUE) {
+         echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
       } else {
-         $result2 = $posts->updatePost($_POST['title'], $_POST['excerpt'], $_POST['content'], $updated_at, $_GET['slug']);
-         if($result2 == TRUE) {
-            echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
-         } else {
-            echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
-         }
+         echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
+      }
+   } else {
+      $result2 = $posts->updatePost($_POST['title'], $_POST['excerpt'], $_POST['content'], $updated_at, $_GET['slug']);
+      if($result2 == TRUE) {
+         echo "<div class='text-center alert alert-success'>Votre épisode a été mis à jour</div>";
+      } else {
+         echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
       }
    }
-   ?>
+}
+?>
 
    <div class="container-fluid padding addpost">
       <div class="row padding justify-content-center">
