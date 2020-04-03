@@ -12,6 +12,22 @@ require_once( ROOT_PATH . "/includes/head_section.php")
 
    <?php include( ROOT_PATH . "/includes/header-admin.php"); ?>
 
+   <div class="container-fluid padding">
+      <div class="row text-right">
+         <div class="col-12">
+            <p class="dashboard-name">
+               <?php 
+               if(!empty($_SESSION['login'])) {
+                  echo "Bienvenue {$_SESSION['username']} 📖";
+               } else {
+                  echo "Vous n'êtes pas connecté";
+               }
+               ?>
+            </p>
+         </div>
+      </div>
+   </div>
+
    <div class="container-fluid dashboard-page">
       <div class="row padding justify-content-center">
          <div class="col-lg-10">

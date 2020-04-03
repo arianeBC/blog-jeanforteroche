@@ -14,7 +14,7 @@ require_once( ROOT_PATH . "/includes/head_section.php")
 <?php 
 include( ROOT_PATH . "/includes/header-admin.php"); 
 $posts = new Post($db); 
-$comments = new Comment($db); 
+$comments = new Comment($db)
 ?>
 
    <div class="container-fluid padding">

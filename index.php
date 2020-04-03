@@ -23,9 +23,7 @@ require_once( ROOT_PATH . "/includes/head_section.php")
                </div>
             </div>
          </div>
-
          <div class="caption text-center">
-
             <h1>BILLET SIMPLE POUR L'ALASKA</h1>
             <h3>par JEAN FORTEROCHE</h3>
             <a href="#episodes" class="btn btn-outline-light btn-lg">LIRE LE DERNIER ÉPISODE</a>
@@ -80,7 +78,6 @@ require_once( ROOT_PATH . "/includes/head_section.php")
                <hr>
             </div>
          </div>
-         
          <div class="container-fluid padding">
             <div class="row padding episode-row">
 
@@ -99,7 +96,6 @@ require_once( ROOT_PATH . "/includes/head_section.php")
 
             </div>
          </div>
-
          <div class="container-fluid padding">
          <div class="row text-center padding">
             <div class="col-12">

@@ -46,42 +46,18 @@ require_once( ROOT_PATH . "/includes/head_section.php")
          <div class="container-fluid padding">
             <div class="row text-center">
                <div class="col-12 text-center">
-               <!-- pagination -->
-               <?php 
-               $sql = "SELECT COUNT(id_post) FROM posts";
-               $result = $db->query($sql);
-               $row = $result->fetch_row();
-               $totalRecords = $row[0];
-               // divided by limit of posts by pages & ceil for whole nb 
-               $totalPages = ceil($totalRecords/6);
-               $pageLink = "<ul class='pagination justify-content-center'>";
 
-               $page = $_GET['page'];
-               if($page > 1) {
-                  // $pageLink .= "<a class='page-link' href='episodes.php?page=1'>First</a>";
-                  $pageLink .= "<a class='arrow' href='episodes.php?page=".($page-1)."'><i class='fas fa-arrow-left'></i></a>";
-               }
+               <?php $posts->pagination(6); ?>
 
-               for($i=1; $i<=$totalPages; $i++) {
-                  $pageLink .= "<a class='page-link' href='episodes.php?page=" .$i. "'>" .$i. "</a>";
-               }
-
-               if($page < $totalPages) {
-                  $pageLink .= "<a class='arrow' href='episodes.php?page=".($page+1)."'><i class='fas fa-arrow-right'></i></a>";
-                  // $pageLink .= "<a class='page-link' href='episodes.php?page=".$totalPages."'>Last</a>";
-               }
-
-               echo $pageLink."</ul>";
-               ?>
                </div>
             </div>
          </div>
       </section>
 
-
-
-      <?php include( ROOT_PATH . "/includes/social-icons-sm.php") ?>
-      <?php include( ROOT_PATH . "/includes/footer.php") ?>
+      <?php 
+      include( ROOT_PATH . "/includes/social-icons-sm.php");
+      include( ROOT_PATH . "/includes/footer.php") 
+      ?>
 
 </body>
 

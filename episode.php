@@ -4,6 +4,7 @@ include( ROOT_PATH . "/models/post.php");
 include( ROOT_PATH . "/models/comment.php");
 require_once( ROOT_PATH . "/includes/head_section.php")
 ?>
+
    <title>Jean Forteroche – Épisode de "Billet simple pour l'Alaska"</title>
 </head>
 
@@ -12,11 +13,8 @@ require_once( ROOT_PATH . "/includes/head_section.php")
    <?php 
    include( ROOT_PATH . "/includes/header.php");
    include( ROOT_PATH . "/includes/background.php");
-   ?>
-
-   <?php 
    $posts = new Post($db);
-   $comments = new Comment($db); 
+   $comments = new Comment($db)
    ?>
 
       <section id="episode">
