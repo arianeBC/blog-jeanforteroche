@@ -23,14 +23,15 @@ class Front {
    }
 
    private function home() {
+      $posts = new Post(["readFromSlug"=>$this->uri[1]]);
       $vue = new View(
          [
-         "{{ titre }}" => "bienvenue",
-         "{{ linkLoginLogout }}" => "",
-         "{{ textLoginLogout }}" => "connexion",
-         "{{ contenu }}" => "---"
+         "{{ {{ post-image }} }}" => $posts->getLastPosts(3),
+         "{{ post-title }}" => $posts->getLastPosts(3),
+         "{{ post-excerpt }}" => $posts->getLastPosts(3),
+         "{{ post-slug }}" => $posts->getLastPosts(3)
       ],
-      "main"
+      "main-template"
       );
       $this->html = $vue->html;
    }
