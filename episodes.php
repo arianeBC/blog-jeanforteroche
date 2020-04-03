@@ -1,7 +1,7 @@
 <?php 
 require_once("config.php");
-require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/post.php");
+require_once( ROOT_PATH . "/includes/head_section.php")
 ?>
    <title>Jean Forteroche – Les épisodes de "Billet simple pour l'Alaska"</title>
 </head>
@@ -10,7 +10,7 @@ include( ROOT_PATH . "/models/post.php");
 
    <?php 
    include( ROOT_PATH . "/includes/header.php");
-   include( ROOT_PATH . "/includes/background.php");
+   include( ROOT_PATH . "/includes/background.php")
    ?>
 
    <?php $posts = new Post($db); ?>
@@ -26,8 +26,8 @@ include( ROOT_PATH . "/models/post.php");
 
          <div class="container-fluid padding card-page">
             <div class="row padding episode-row">
-               <?php foreach($posts->getPostsLimit(6) as $post) { ?>
 
+               <?php foreach($posts->getPostsLimit(6) as $post) { ?>
                   <div class="col-md-4">
                      <div class="card style="width: 300px;">
                         <img src="public/images/<?php echo $post['image']; ?>" alt="Aperçu de l'épisode" class="card-img-episodes">
@@ -38,8 +38,8 @@ include( ROOT_PATH . "/models/post.php");
                         </div>
                      </div>
                   </div>
-
                <?php } ?>
+
             </div>
          </div>
 

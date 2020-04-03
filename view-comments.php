@@ -1,8 +1,8 @@
 <?php 
 require_once("config.php");
-require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/comment.php");
 $comments = new Comment($db);
+require_once( ROOT_PATH . "/includes/head_section.php")
 ?>
 
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
@@ -15,9 +15,7 @@ $comments = new Comment($db);
    <div class="container-fluid dashboard-page">
       <div class="row padding justify-content-center">
          <div class="col-lg-10">
-
             <h6 class="text-center">ESPACE ADMMINISTRATION – LES COMMENTAIRES</h6>
-
             <table class="table table-hover">
                <thead class="thead-dark">
                   <tr>
@@ -28,6 +26,7 @@ $comments = new Comment($db);
                   </tr>
                </thead>
                <tbody>
+
                   <?php foreach($comments->getPendingComments() as $comment) { ?>
                   <tr>
                      <td ><?php echo $comment['name']; ?></td>
@@ -57,7 +56,6 @@ $comments = new Comment($db);
                         echo "<div class='text-center alert alert-success'>Commentaire approuvé</div>";
                      }
                   }
-
                   if(isset($_POST['delete'])) {
                      $result = $comments->deleteComment($_POST['deleteId']);
                      if($result == TRUE) {
@@ -65,9 +63,9 @@ $comments = new Comment($db);
                      }
                   }
                   ?>
+
                </tbody>
             </table>
-
          </div>
       </div>
    </div>

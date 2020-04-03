@@ -1,8 +1,8 @@
 <?php 
 require_once("config.php");
-require_once( ROOT_PATH . "/includes/head_section.php");
-// include( ROOT_PATH . "/models/post.php");
+require_once( ROOT_PATH . "/includes/head_section.php")
 ?>
+
    <title>Jean Forteroche – Biographie de l'auteur</title>
 </head>
 
@@ -10,7 +10,7 @@ require_once( ROOT_PATH . "/includes/head_section.php");
 
    <?php 
    include( ROOT_PATH . "/includes/header.php");
-   include( ROOT_PATH . "/includes/background.php");
+   include( ROOT_PATH . "/includes/background.php")
    ?>
 
       <section id="author">
@@ -33,8 +33,10 @@ require_once( ROOT_PATH . "/includes/head_section.php");
          </div>
       </section>
 
-      <?php include( ROOT_PATH . "/includes/social-icons-sm.php") ?>
-      <?php include( ROOT_PATH . "/includes/footer.php") ?>
+   <?php 
+   include( ROOT_PATH . "/includes/social-icons-sm.php");
+   include( ROOT_PATH . "/includes/footer.php") 
+   ?>
 
 </body>
 

@@ -1,16 +1,18 @@
 <?php 
 require_once("config.php");
-require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/account.php");
+require_once( ROOT_PATH . "/includes/head_section.php")
 ?>
+
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
 </head>
 
 <body>
 
-   <?php include( ROOT_PATH . "/includes/header.php"); ?>
-   <?php $user = new Account($db); ?>
    <?php 
+   include( ROOT_PATH . "/includes/header.php"); 
+   $user = new Account($db);
+   
    if(isset($_POST['btnLogin'])) {
       $user->login($_POST['login'], md5($_POST['pwd']));
    }

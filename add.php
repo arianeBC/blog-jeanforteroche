@@ -1,8 +1,10 @@
-<?php require_once("config.php"); ?>
-<?php include( ROOT_PATH . "/session.php"); ?>
-<?php require_once( ROOT_PATH . "/includes/head_section.php"); ?>
-<?php include( ROOT_PATH . "/models/post.php"); ?>
-<?php include( ROOT_PATH . "/includes/functions.php"); ?>
+<?php 
+require_once("config.php"); 
+include( ROOT_PATH . "/session.php"); 
+include( ROOT_PATH . "/models/post.php"); 
+include( ROOT_PATH . "/includes/functions.php");
+require_once( ROOT_PATH . "/includes/head_section.php")
+?>
 
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
 </head>
@@ -27,9 +29,8 @@
       </div>
    </div>
 
-   <?php $posts = new Post($db); ?>
+   <?php $posts = new Post($db);
 
-   <?php
    if(isset($_POST['btnSubmit'])) {
 
       if( !empty($_POST['title']) && !empty($_POST['excerpt']) && !empty($_POST['content']) && !empty(uploadImage())) {

@@ -15,7 +15,7 @@ class Comment {
    }
 
    public function comment($name, $email, $comment, $published_at, $slug, $status) {
-      $sql = "INSERT INTO comments(name, email, comment, published_at, slug, status) VALUES ('$name', '$email', '$comment', '$published_at', '$slug', '$status')";
+      $sql = "INSERT INTO comments(name, email, comment, published_at, slug, status) VALUES ('".addslashes($name)."', '$email', '".addslashes($comment)."', '$published_at', '$slug', '$status')";
       $result = $this->db->query($sql);
       return $result;
    }

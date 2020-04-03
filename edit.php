@@ -1,20 +1,20 @@
-<?php require_once("config.php"); ?>
-<?php require_once( ROOT_PATH . "/includes/head_section.php"); ?>
-<?php include( ROOT_PATH . "/models/post.php"); ?>
-<?php include( ROOT_PATH . "/includes/functions.php"); ?>
+<?php 
+require_once("config.php"); 
+include( ROOT_PATH . "/models/post.php"); 
+include( ROOT_PATH . "/includes/functions.php"); 
+require_once( ROOT_PATH . "/includes/head_section.php")
+?>
 
    <title>Jean Forteroche – Auteur de "Billet simple pour l'Alaska"</title>
 </head>
 
 <body>
 
-   <?php include( ROOT_PATH . "/includes/header-admin.php"); ?>
+   <?php 
+   include( ROOT_PATH . "/includes/header-admin.php"); 
+   $posts = new Post($db); 
 
-   <?php $posts = new Post($db); ?>
-
-   <?php
    if(isset($_POST['btnUpdate'])) {
-
       $imagename = $_FILE["image"]["name"];
       $updated_at = date("Y-m-d");
       if(!empty($imagename)) {
@@ -32,7 +32,6 @@
             echo "<div class='text-center alert alert-danger'>Veuillez réessayer</div>";
          }
       }
-
    }
    ?>
 
@@ -40,7 +39,6 @@
       <div class="row padding justify-content-center">
 
          <?php foreach($posts->getSinglePost($_GET['slug']) as $post) { ?>
-
          <div class="col-lg-6 col-md-8">
             <form action="#" method="POST" enctype="multipart/form-data">
             <h6 class="text-center">ESPACE ADMMINISTRATION – MODIFIER UN ÉPISODE</h6>
@@ -73,11 +71,10 @@
                      <div class="form-group float-right">
                         <button type="submit" name="btnUpdate" class="btn btn-outline-secondary btn-lg">Mettre à jour</button>
                      </div>
-                  </form>
+                  </div>
                </div>
-            </div>
+            </form>
          </div>
-
          <?php } ?>
          
       </div>

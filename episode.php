@@ -1,8 +1,8 @@
 <?php 
 require_once("config.php");
-require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/models/post.php");
 include( ROOT_PATH . "/models/comment.php");
+require_once( ROOT_PATH . "/includes/head_section.php")
 ?>
    <title>Jean Forteroche – Épisode de "Billet simple pour l'Alaska"</title>
 </head>
@@ -14,8 +14,10 @@ include( ROOT_PATH . "/models/comment.php");
    include( ROOT_PATH . "/includes/background.php");
    ?>
 
-   <?php $posts = new Post($db); ?>
-   <?php $comments = new Comment($db); ?>
+   <?php 
+   $posts = new Post($db);
+   $comments = new Comment($db); 
+   ?>
 
       <section id="episode">
          <div class="container-fluid padding">
@@ -28,8 +30,8 @@ include( ROOT_PATH . "/models/comment.php");
 
          <div class="container-fluid padding card-page">
             <div class="row padding justify-content-center">
+
                <?php foreach($posts->getSinglePost($_GET['slug']) as $post) { ?>
-            
                <div class="col-md-11 col-lg-10">
                   <div class="card">
                      <img src="public/images/<?php echo $post['image']; ?>" alt="Aperçu de l'épisode" class="card-img-top">
@@ -45,10 +47,12 @@ include( ROOT_PATH . "/models/comment.php");
                            ?>
                         </p>
                         <p class="card-text"><?php echo htmlspecialchars_decode( $post['content'] ); ?></p>
-
+                     </div>
                <?php } ?>
+
                         <h4 class="card-title comment-title">Commentaires (<?php echo $comments->countComments($_GET['slug']); ?>)</h4>
-         <?php foreach($comments->getCommentBySlug($_GET['slug']) as $comment) { ?>
+
+               <?php foreach($comments->getCommentBySlug($_GET['slug']) as $comment) { ?>
                         <div class="media comment-section">
                            <div class="media-left media-top">
                               <img class="avatar-img" src="public/images/avatar.png">
@@ -63,31 +67,31 @@ include( ROOT_PATH . "/models/comment.php");
                               </form>
                            </div>
                         </div> 
-         <?php } ?>
+               <?php } ?>
 
-         <?php if(isset($_POST['commentFlag'])) {
-            if(isset($_POST['commentFlag'])) {
-               $result = $comments->updateComment($_POST['approveId']);
-               if($result == TRUE) {
-                  echo "<div class='text-center alert alert-success'>Vous avez signalé ce commentaire.</div>";
-               }
-            }
-         } ?>
+               <?php if(isset($_POST['commentFlag'])) {
+                  if(isset($_POST['commentFlag'])) {
+                     $result = $comments->updateComment($_POST['approveId']);
+                     if($result == TRUE) {
+                        echo "<div class='text-center alert alert-success'>Vous avez signalé ce commentaire.</div>";
+                     }
+                  }
+               } ?>
 
-         <?php 
-         if(isset($_POST['btnComment'])) {
-            if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comment'])) {
-               $published_at = date("Y-m-d");
-               $status = 1;
-               $result = $comments->comment(strip_tags($_POST['name']), strip_tags($_POST['email']), strip_tags($_POST['comment']), $published_at, $_GET['slug'], $status);
-               if ($result == TRUE) {
-                  echo "<div class='text-center alert alert-success'>Votre commentaire à été ajouté</div>";
+               <?php 
+               if(isset($_POST['btnComment'])) {
+                  if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['comment'])) {
+                     $published_at = date("Y-m-d");
+                     $status = 1;
+                     $result = $comments->comment(strip_tags($_POST['name']), strip_tags($_POST['email']), strip_tags($_POST['comment']), $published_at, $_GET['slug'], $status);
+                     if ($result == TRUE) {
+                        echo "<div class='text-center alert alert-success'>Votre commentaire à été ajouté</div>";
+                     }
+                  } else {
+                     echo "<div class='text-center alert alert-danger'>Votre commentaire n'a pas pu être ajouté. Vérifiez que tous les champs soient remplis.</div>";
+                  }
                }
-            } else {
-               echo "<div class='text-center alert alert-danger'>Votre commentaire n'a pas pu être ajouté. Vérifiez que tous les champs soient remplis.</div>";
-            }
-         }
-         ?>
+               ?>
 
                         <h5 class="card-title comment-title">Votre commentaire :</h5>
                         <form class="comment-form" action="" method="POST">
@@ -109,20 +113,17 @@ include( ROOT_PATH . "/models/comment.php");
                                  </div>
                               </div>
                         </form>
-
-
-
                      </div>
                   </div>
                </div>
             </div>
-
-
          </div>
       </section>
 
-      <?php include( ROOT_PATH . "/includes/social-icons-sm.php") ?>
-      <?php include( ROOT_PATH . "/includes/footer.php") ?>
+      <?php 
+      include( ROOT_PATH . "/includes/social-icons-sm.php");
+      include( ROOT_PATH . "/includes/footer.php") 
+      ?>
 
 </body>
 
