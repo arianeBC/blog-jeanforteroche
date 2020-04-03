@@ -1,10 +1,4 @@
-<<<<<<< HEAD
-<?php 
-include "db.php";
-$db = new Db();
-=======
 <?php require_once("config.php");
->>>>>>> second-version-blog
 
 class Comment {
    private $db;

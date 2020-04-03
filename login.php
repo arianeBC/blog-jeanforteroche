@@ -1,10 +1,4 @@
 <?php 
-<<<<<<< HEAD
-session_start();
-if(empty($_SESSION['login'])) {
-   header("location:login.php");
-}
-=======
 require_once("config.php");
 include( ROOT_PATH . "/models/account.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
@@ -47,4 +41,3 @@ if(isset($_POST['btnLogin'])) {
 </body>
 
 </html>
->>>>>>> second-version-blog
