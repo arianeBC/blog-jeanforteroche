@@ -1,10 +1,11 @@
 <?php 
+
 require_once("config.php");
 include( ROOT_PATH . "/session.php"); 
 include( ROOT_PATH . "/models/comment.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
 include( ROOT_PATH . "/includes/header-admin.php");
-$comments = new Comment($db);
+$comments = new Comment($db)
 ?>
 
 <div class="container-fluid dashboard-page">
