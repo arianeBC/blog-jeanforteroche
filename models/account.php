@@ -1,6 +1,5 @@
 <?php
-include "db.php";
-$db = new Db();
+include ("config.php");
 session_start();
 
 class Account {
