@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 <?php 
 include "db.php";
 $db = new Db();
+=======
+<?php require_once("config.php");
+>>>>>>> second-version-blog
 
 class Post {
    private $db;
@@ -68,16 +72,28 @@ class Post {
       return $result;
    }
 
+<<<<<<< HEAD
    public function pagination($postPerPage) {
+=======
+   public function pagination($postsPerPage) {
+>>>>>>> second-version-blog
       $sql = "SELECT COUNT(id_post) FROM posts";
       $result = $this->db->query($sql);
       $row = $result->fetch_row();
       $totalRecords = $row[0];
+<<<<<<< HEAD
       $totalPages = ceil($totalRecords/$postPerPage);
+=======
+      $totalPages = ceil($totalRecords/$postsPerPage);
+>>>>>>> second-version-blog
       $pageLink = "<ul class='pagination justify-content-center'>";
 
       $page = $_GET['page'];
       if($page > 1) {
+<<<<<<< HEAD
+=======
+         // $pageLink .= "<a class='page-link' href='episodes.php?page=1'>First</a>";
+>>>>>>> second-version-blog
          $pageLink .= "<a class='arrow' href='episodes.php?page=".($page-1)."'><i class='fas fa-arrow-left'></i></a>";
       }
 
@@ -87,10 +103,18 @@ class Post {
 
       if($page < $totalPages) {
          $pageLink .= "<a class='arrow' href='episodes.php?page=".($page+1)."'><i class='fas fa-arrow-right'></i></a>";
+<<<<<<< HEAD
       }
 
       echo $pageLink."</ul>";
    }
+=======
+         // $pageLink .= "<a class='page-link' href='episodes.php?page=".$totalPages."'>Last</a>";
+      }
+
+      echo $pageLink."</ul>";
+   } 
+>>>>>>> second-version-blog
 }
 
 
