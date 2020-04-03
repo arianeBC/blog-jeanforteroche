@@ -1,4 +1,5 @@
 <?php 
+
 require_once("config.php"); 
 include( ROOT_PATH . "/session.php"); 
 include( ROOT_PATH . "/models/post.php"); 

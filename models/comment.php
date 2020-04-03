@@ -1,6 +1,7 @@
 <?php require_once("config.php");
 
 class Comment {
+
    private $db;
 
    public function __construct($db) {
@@ -56,4 +57,5 @@ class Comment {
       $result = $checkPendings->num_rows;
       return $result;
    }
+   
 }

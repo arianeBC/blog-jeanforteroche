@@ -3,6 +3,7 @@ require_once("config.php");
 session_start();
 
 class Account {
+
    private $db;
 
    public function __construct($db) {
@@ -20,4 +21,5 @@ class Account {
          header("location:result.php");
       }
    }
+   
 }

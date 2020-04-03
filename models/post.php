@@ -1,6 +1,7 @@
 <?php require_once("config.php");
 
 class Post {
+
    private $db;
 
    public function __construct($db) {
@@ -93,6 +94,7 @@ class Post {
 
       echo $pageLink."</ul>";
    } 
+   
 }
 
 

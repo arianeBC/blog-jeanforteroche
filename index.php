@@ -1,4 +1,5 @@
 <?php 
+
 require_once("config.php");
 include( ROOT_PATH . "/models/post.php");
 require_once( ROOT_PATH . "/includes/head_section.php");
