@@ -1,7 +1,8 @@
-RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_URI} !^/index.php$
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !\.(css|gif|ico|jpg|js|png|swf|svg|woff|ttf|eot)$
-RewriteRule . index.php [L]
+<IfModule mod_rewrite.c>
+  Options -Multiviews
+  RewriteEngine On
+  RewriteBase /jeanforteroche/public
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]
+</IfModule>
