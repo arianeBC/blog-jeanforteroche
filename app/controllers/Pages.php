@@ -12,7 +12,10 @@
          $this->view("pages/index", $data);
       }
 
-      public function about() {
-         $this->view("pages/about");
+      public function author() {
+         $data = [
+            'title' => 'Author'
+         ];
+         $this->view("pages/author", $data);
       }
    }

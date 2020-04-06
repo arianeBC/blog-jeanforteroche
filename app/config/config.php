@@ -4,4 +4,4 @@
    // URL Root
    define("URLROOT", "http://jeanforteroche");
    // Site Name
-   define("SITENAME", "arianedesvals.com/jeanforteroche");
+   define("SITENAME", "Jean Forteroche");
