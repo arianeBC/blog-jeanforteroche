@@ -14,17 +14,16 @@
          // print_r($this->getUrl());
 
          $url = $this->getUrl();
-         $file = $_SERVER['DOCUMENT_ROOT']."/app/controllers/";
 
          // Look in controllers for first value
-         if(file_exists("../app/controllers/" . ucwords($url[0]). ".php")) {
+         if(file_exists("../app/controllers/" . ucwords($url[0]) . ".php")) {
             // If exist, set as controller
             $this->currentController = ucwords($url[0]);
             unset($url[0]);
          }
 
          // Require the controller
-         require_once '../app/controllers/'. $this->currentController . '.php';
+         require_once "../app/controllers/" . $this->currentController . '.php';
 
          // Instantiate controller class
          $this->currentController = new $this->currentController;
