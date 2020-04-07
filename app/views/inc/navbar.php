@@ -16,12 +16,12 @@
                <li class="nav-item">
                   <a href="<?php echo URLROOT; ?>/pages/episodes" class="nav-link">Les épisodes</a>
                </li>
-               <!-- <li class="nav-item">
+               <li class="nav-item">
                   <a href="/users/register" class="nav-link">S'inscrire</a>
                </li>
                <li class="nav-item navItemConnexion">
                   <a href="/users/login" class="nav-link">Connexion</a>
-               </li> -->
+               </li>
             </ul>
          </div>
       </div>
