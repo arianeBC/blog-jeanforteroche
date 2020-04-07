@@ -24,7 +24,7 @@
                   <p class="lead">Pour mon nouveau roman "Billet simple pour l'Alaska", j'ai choisi d'innover. Je change totalement de concept au profit d'un style que l'on pourrait apparenter aux web-séries. Mon livre sera publié par épisodes, à chaque semaine les lundi et les jeudi.</p>
                </div>
                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-                  <a href="episodes.php"><button type="button" class="btn btn-outline-secondary btn-lg">Voir tous les épisodes</button></a>
+                  <a href="<?php echo URLROOT; ?>/pages/episodes"><button type="button" class="btn btn-outline-secondary btn-lg">Voir tous les épisodes</button></a>
                </div>
             </div>
          </div>
@@ -38,7 +38,7 @@
                   <p>Je ne suis né qu'une fois. Cela s'est fait à Saint-Félix-de-Valois, dans la province de Québec. La prochaine fois que je mourrai, ce sera la première fois. Je veux mourir verticalement, la tête en bas et les pieds en haut.</p>
                   <p>À l'école, j'étais toujours le premier à partir. Je n'y allais pas souvent et j'y restais le moins longtemps possible. J'ai complété mes études secondaires à Joliette, avec les Clercs de Saint-Viateur.</p>
                   <p>J'ai souffert six mois à l'École polytechnique de Montréal. Enfin délivré, je me suis pris pour un commis de bureau et me prends encore aujourd'hui pour tel. Mais ceux qui embauchent des commis de bureau ne veulent pas me prendre pour un commis de bureau. Je ne travaille pas toujours et ne travaille pas toujours comme commis de bureau. Un mois sur deux, je suis en chômage.</p>
-                  <a href="author.php" class="btn btn-primary">En savoir plus</a>
+                  <a href="<?php echo URLROOT; ?>/pages/author" class="btn btn-primary">En savoir plus</a>
                </div>
                <div class="col-lg-4 text-center">
                   <img src="public/images/jean-forteroche-s.jpg" alt="Je me fais passer pour l'écrivain Jean Forteroche mais en réalité je suis Réjean Ducharme">

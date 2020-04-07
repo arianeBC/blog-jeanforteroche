@@ -7,6 +7,12 @@
       public function index() {
          $data = [
             'title' => 'Welcome'
+            // {{ page-1 }} => "Autheur",
+            // {{ page-2 }} => "Les épisodes",
+            // {{ login-logout }} => "Connexion"
+            // {{ author-or-add-php }}
+            // {{ episode-or-dashboard-php }}
+            // {{ login-or-logout-php }}
          ];
 
          $this->view("pages/index", $data);
@@ -16,7 +22,15 @@
          $data = [
             'title' => 'Author'
          ];
-         
+
          $this->view("pages/author", $data);
+      }
+
+      public function episodes() {
+         $data = [
+            'title' => 'Episodes'
+         ];
+
+         $this->view("pages/episodes", $data);
       }
    }
