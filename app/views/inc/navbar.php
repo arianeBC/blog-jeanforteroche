@@ -7,6 +7,20 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+            <?php if(isset($_SESSION['user_id'])) : ?>
+               <li class="nav-item">
+                  <a href="/posts/add" class="nav-link">Ajouter</a>
+               </li>
+               <li class="nav-item">
+                  <a href="/users/edit" class="nav-link">Modifier</a>
+               </li>
+               <li class="nav-item">
+                  <a href="/users/edit" class="nav-link">Tableau de bord</a>
+               </li>
+               <li class="nav-item">
+                  <a href="/users/logout" class="nav-link">Déconnexion</a>
+               </li>
+            <?php else : ?>
                <li class="nav-item">
                   <a href="<?php echo URLROOT; ?>" class="nav-link">Accueil</a>
                </li>
@@ -22,6 +36,7 @@
                <li class="nav-item navItemConnexion">
                   <a href="/users/login" class="nav-link">Connexion</a>
                </li>
+            <?php endif; ?>
             </ul>
          </div>
       </div>

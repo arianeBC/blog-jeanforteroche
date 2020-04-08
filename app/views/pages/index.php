@@ -4,7 +4,7 @@
       <div class="video-wrap">
          <div class="video">
             <video id="bgvid" autoplay loop muted playsinline>
-               <source src="public/images/woman-comes-to-the-lake.mp4" type="video/mp4">
+               <source src="<?php echo URLROOT; ?>/images/woman-comes-to-the-lake.mp4" type="video/mp4">
             </video>
          </div>
       </div>
@@ -40,7 +40,7 @@
             <a href="<?php echo URLROOT; ?>/pages/author" class="btn btn-primary">En savoir plus</a>
          </div>
          <div class="col-lg-4 text-center">
-            <img src="public/images/jean-forteroche-s.jpg" alt="Je me fais passer pour l'écrivain Jean Forteroche mais en réalité je suis Réjean Ducharme">
+            <img src="<?php echo URLROOT; ?>/images/jean-forteroche-s.jpg" alt="Je me fais passer pour l'écrivain Jean Forteroche mais en réalité je suis Réjean Ducharme">
          </div>
       </div>
    </div>

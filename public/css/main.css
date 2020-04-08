@@ -608,7 +608,8 @@ hr.light-100 {
   color: #d5d5d5;
 }
 
-.fa-comment-alt {
+.fa-comment-alt,
+.fa-pencil-alt {
   color: #b7bf9b;
   padding-right: .6rem;
 }
