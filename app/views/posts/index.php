@@ -16,22 +16,25 @@
                   </tr>
                </thead>
                <tbody>
-                  <!-- foreach($posts->getPost() as $post) {  -->
+                  <?php foreach($data['posts'] as $post) : ?>
                   <tr>
-                     <td>{{ post-title }}</td>
-                     <td class="sm-table ">{{ post-excerpt }}</td>
+                     <td><?php echo $post->title; ?></td>
+                     <td class="sm-table "><?php echo $post->excerpt; ?></td>
                      <td class="sm-table ">
-                        {{ post-created_at }}<br> 
-                        <span class="updatedAt-dashboard">{{ Mise à jour le {{ updated-at }} }}
+                        <?php echo $post->created_at; ?><br> 
+                        <span class="updatedAt-dashboard">
+                           <?php if ($post->updated_at !== null) {
+                              echo "Mise à jour le " . $post->updated_at; 
+                           } ?>
                         </span>
                      </td>
                      <td>
-                        <a href="episode.php?slug={{ post-slug }}"><button type="submit" class="btn btn-outline-success btn-sm">Afficher</button></a>
+                        <a href="<?php echo URLROOT; ?>/posts/show/<?php echo $post->id_post; ?>"><button type="submit" class="btn btn-outline-success btn-sm">Afficher</button></a>
                         <a href="edit.php?slug={{ post-slug }}"><button type="submit" class="btn btn-outline-primary btn-sm">Modifier</button></a>
                         <a href="delete.php?slug={{ post-slug }}"><button type="submit" class="btn btn-outline-danger btn-sm">Supprimer</button></a>
                      </td>
                   </tr>
-                  <!-- }  -->
+                  <?php endforeach; ?>
                </tbody>
             </table>
          </div>

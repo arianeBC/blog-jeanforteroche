@@ -42,3 +42,17 @@
       </div>
    </nav>
 </header>
+
+<?php if(isset($_SESSION['user_id'])) : ?>
+<div class="container-fluid padding">
+      <div class="row text-right">
+         <div class="col-12">
+            <p class="dashboard-name">
+               <?php 
+                  echo "Bienvenue {$_SESSION['user_name']} 📖";
+               ?>
+            </p>
+         </div>
+      </div>
+   </div>
+<?php endif; ?>
