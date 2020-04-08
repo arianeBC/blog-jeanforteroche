@@ -14,7 +14,7 @@
 
             // Init Data
             $data = [
-               "name" => $_POST['name'],
+               "name" => trim($_POST['name']),
                "email" => trim($_POST['email']),
                "password" => trim($_POST['password']),
                "confirm_password" => trim($_POST['confirm_password']),

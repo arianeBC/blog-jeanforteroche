@@ -62,6 +62,9 @@
 .fa-pencil-alt {
    color: $primary-color;
    padding-right: .6rem;
+   &:hover {
+      color: $light-black;
+   }
 }
 .fa-arrow-left,
 .fa-arrow-right {

@@ -614,6 +614,11 @@ hr.light-100 {
   padding-right: .6rem;
 }
 
+.fa-comment-alt:hover,
+.fa-pencil-alt:hover {
+  color: #3f3f3f;
+}
+
 .fa-arrow-left,
 .fa-arrow-right {
   color: #b7bf9b;
