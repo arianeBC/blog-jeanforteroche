@@ -9,16 +9,16 @@
             <ul class="navbar-nav ml-auto">
             <?php if(isset($_SESSION['user_id'])) : ?>
                <li class="nav-item">
-                  <a href="/posts/add" class="nav-link">Ajouter</a>
+                  <a href="<?php echo URLROOT; ?>/posts/add" class="nav-link">Ajouter</a>
                </li>
                <li class="nav-item">
-                  <a href="/users/edit" class="nav-link">Modifier</a>
+                  <a href="<?php echo URLROOT; ?>/posts/edit" class="nav-link">Modifier</a>
                </li>
                <li class="nav-item">
-                  <a href="/users/edit" class="nav-link">Tableau de bord</a>
+                  <a href="<?php echo URLROOT; ?>/posts" class="nav-link">Tableau de bord</a>
                </li>
                <li class="nav-item">
-                  <a href="/users/logout" class="nav-link">Déconnexion</a>
+                  <a href="<?php echo URLROOT; ?>/users/logout" class="nav-link">Déconnexion</a>
                </li>
             <?php else : ?>
                <li class="nav-item">
@@ -31,7 +31,7 @@
                   <a href="<?php echo URLROOT; ?>/pages/episodes" class="nav-link">Les épisodes</a>
                </li>
                <li class="nav-item">
-                  <a href="/users/register" class="nav-link">S'inscrire</a>
+                  <a href="<?php echo URLROOT; ?>/users/register" class="nav-link">S'inscrire</a>
                </li>
                <li class="nav-item navItemConnexion">
                   <a href="/users/login" class="nav-link">Connexion</a>

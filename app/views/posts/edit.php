@@ -3,11 +3,11 @@
       <div class="row padding justify-content-center">
          <div class="col-lg-6 col-md-8">
          <a href="<?php echo URLROOT; ?>/posts" class="btn btn-outline-secondary btn-sm mb-3"><i class="fa fa-backward"></i> Tableau de bord</a>
-         <h6 class="text-center">ESPACE ADMMINISTRATION – AJOUTER UN ÉPISODE</h6>
+         <h6 class="text-center">ESPACE ADMMINISTRATION – MODIFIER UN ÉPISODE</h6>
             <div class="card">
-            <div class="card-header">Ajouter un épisode</div>
+            <div class="card-header">Modifier un épisode</div>
                <div class="card-body">
-                  <form action="<?php echo URLROOT; ?>/posts/add" method="post" enctype="multipart/form-data">
+                  <form action="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['id_post']; ?>" method="post" enctype="multipart/form-data">
                   
                   <div class="form-group">
                      <label for="title">Titre : <sup>*</sup></label>
@@ -32,10 +32,11 @@
                      <label for="image">Image : <sup>*</sup></label><br>
                      <input type="file" name="image" class="form-control btn-img <?php echo (!empty($data['image_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['image']; ?>">
                      <span class="invalid-feedback"><?php echo $data['image_err']; ?></span>
+                     <img class="img-update" src="<?php echo URLROOT ;?>/images/<?php echo $data['image']; ?>"/>
                   </div>
                   
                   <div class="form-group float-right">
-                     <button type="submit" name="btnSubmit" class="btn btn-outline-secondary btn-lg"><i class="fas fa-pencil-alt"></i>Ajouter</button>
+                     <button type="submit" name="btnSubmit" class="btn btn-outline-secondary btn-lg"><i class="fas fa-pencil-alt"></i>Mettre à jour</button>
                   </div>
 
                   </form>
