@@ -14,6 +14,16 @@
          return $results;
       }
 
+      public function getLastPosts($numberOfPosts) {
+         $this->db->query("SELECT * FROM posts ORDER BY created_at DESC LIMIT :numberOfPost");
+
+         $this->db->bind(":numberOfPost", $numberOfPosts);
+
+         $results = $this->db->resultSet();
+
+         return $results;
+      }
+
       public function addPost($data) {
          $this->db->query("INSERT INTO posts (id_user, title, excerpt, content, image, created_at) VALUES(:id_user, :title, :excerpt, :content, :image, :created_at)");
          // Bind values
@@ -88,4 +98,5 @@
             return false;
          }
       }
+
    }

@@ -68,18 +68,18 @@
    <div class="container-fluid padding">
       <div class="row padding episode-row">
 
-         <!-- foreach($post->getLastPosts(3) as $post) {  -->
+         <?php foreach($data['posts'] as $post) : ?>
             <div class="col-md-4">
                <div class="card style="width: 300px;">
-                  <img src="public/images/{{ post-image }}"  alt="Aperçu de l'épisode" class="card-img-episodes">
+                  <img src="<?php echo URLROOT; ?>/images/<?php echo $post->image; ?>"  alt="Aperçu de l'épisode" class="card-img-episodes">
                   <div class="card-body d-flex flex-column">
-                     <h4 class="card-title">{{ post-title }}</h4>
-                     <p class="card-text">{{ post-excerpt }}</p>
-                     <a href="episode.php?slug={{ post-slug }}" class="btn btn-outline-secondary mt-auto">Lire l'épisode</a>
+                     <h4 class="card-title"><?php echo $post->title; ?></h4>
+                     <p class="card-text"><?php echo $post->excerpt; ?></p>
+                     <a href="<?php echo URLROOT; ?>pages/episode/<?php echo $post->id_post; ?>" class="btn btn-outline-secondary mt-auto">Lire l'épisode</a>
                   </div>
                </div>
             </div>
-         <!-- }  -->
+         <?php endforeach; ?>
 
       </div>
    </div>

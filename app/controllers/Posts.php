@@ -157,16 +157,8 @@
       }
 
       public function delete($id_post) {
-         if($_SERVER['REQUEST_METHOD'] == "POST") {
-            // Get existing post from model
-            $post = $this->postModel->getPostById($id_post);
-
-            // Check for owner
-            if($post->id_user != $_SESSION['user_id']) {
-               redirect("posts");
-               flash("post_message", "Vous n'êtes pas l'auteur de cet épisode");
-            }
-            
+         if($_SERVER['REQUEST_METHOD'] == "POST") {    
+            // Execute    
             if($this->postModel->deletePost($id_post)) {
                flash("post_message", "Cet épisode a été supprimé");
                redirect("posts");
@@ -177,4 +169,5 @@
             redirect("posts");
          }
       }
+
    }

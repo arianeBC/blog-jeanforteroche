@@ -1,7 +1,7 @@
 <?php
    class Pages extends Controller {
       public function __construct() {
-
+         $this->postModel = $this->model("Post");
       }
 
       public function index() {
@@ -9,14 +9,11 @@
             redirect("posts");
          }
 
+         // Get last posts
+         $posts = $this->postModel->getLastPosts(3);
+
          $data = [
-            'title' => 'Welcome'
-            // {{ page-1 }} => "Autheur",
-            // {{ page-2 }} => "Les épisodes",
-            // {{ login-logout }} => "Connexion"
-            // {{ author-or-add-php }}
-            // {{ episode-or-dashboard-php }}
-            // {{ login-or-logout-php }}
+            "posts" => $posts
          ];
 
          $this->view("pages/index", $data);
@@ -31,8 +28,11 @@
       }
 
       public function episodes() {
+
+         // Get posts
+         $posts = $this->postModel->getPosts();
          $data = [
-            'title' => 'Episodes'
+            "posts" => $posts
          ];
 
          $this->view("pages/episodes", $data);
