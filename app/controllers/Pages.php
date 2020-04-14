@@ -27,14 +27,4 @@
          $this->view("pages/author", $data);
       }
 
-      public function episodes() {
-
-         // Get posts
-         $posts = $this->postModel->getPosts();
-         $data = [
-            "posts" => $posts
-         ];
-
-         $this->view("pages/episodes", $data);
-      }
    }

@@ -28,7 +28,7 @@
                   <a href="<?php echo URLROOT; ?>/pages/author" class="nav-link">Auteur</a>
                </li>
                <li class="nav-item">
-                  <a href="<?php echo URLROOT; ?>/pages/episodes" class="nav-link">Les épisodes</a>
+                  <a href="<?php echo URLROOT; ?>/posts/episodes" class="nav-link">Les épisodes</a>
                </li>
                <li class="nav-item">
                   <a href="<?php echo URLROOT; ?>/users/register" class="nav-link">S'inscrire</a>

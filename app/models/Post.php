@@ -99,4 +99,51 @@
          }
       }
 
+      public function getCommentById($id_post) {
+         $this->db->query("SELECT * FROM comments WHERE id_post = :id_post ORDER BY published_at DESC");
+         $this->db->bind(":id_post", $id_post);
+
+         $results = $this->db->resultSet();
+
+         return $results;
+      }
+
+      public function commentCount($id_post) {
+         $this->db->query("SELECT * FROM comments WHERE id_post = :id_post");
+         $this->db->bind(":id_post", $id_post);
+
+         $results = $this->db->resultSet();
+
+         $row = $this->db->rowCount();
+
+         return $row;
+      }
+
+      public function pagination($noPage) {
+         $this->db->query("SELECT COUNT(id_post) FROM posts");
+         $results = $this->db->single();
+         $row = $this->db->rowCount();
+         $totalRecords = $row[0];
+         $limit = 6;
+         $totalPages = ceil($totalRecords/$limit);
+         $pageLink = "<ul class='pagination justify-content-center'>";
+
+         $page = $noPage;
+         // $page = $_GET['page'];
+         
+         if($page > 1) {
+            $pageLink .= "<a class='arrow' href='" .URLROOT. "/episodes/" .($page-1). "'><i class='fas fa-arrow-left'></i></a>";
+         }
+   
+         for($i=1; $i<=$totalPages; $i++) {
+            $pageLink .= "<a class='page-link' href='" .URLROOT. "/episodes/" .$i. "'>" .$i. "</a>";
+         }
+   
+         if($page < $totalPages) {
+            $pageLink .= "<a class='arrow' href='" .URLROOT. "/episodes/" .($page+1). "'><i class='fas fa-arrow-right'></i></a>";
+         }
+   
+         return $pageLink."</ul>";
+      }
+
    }

@@ -1,15 +1,15 @@
 <?php
    class Posts extends Controller {
       public function __construct() {
-         if(!isLoggedIn()) {
-            redirect("users/login");
-         }
 
          $this->postModel = $this->model("Post");
 
       }
 
       public function index() {
+         if(!isLoggedIn()) {
+            redirect("users/login");
+         }
          // Get posts
          $posts = $this->postModel->getPosts();
 
@@ -21,6 +21,9 @@
       }
 
       public function add() {
+         if(!isLoggedIn()) {
+            redirect("users/login");
+         }
          if($_SERVER['REQUEST_METHOD'] == "POST") {
 
             // Sanitize POST array
@@ -78,6 +81,9 @@
       }
 
       public function edit($id_post) {
+         if(!isLoggedIn()) {
+            redirect("users/login");
+         }
          if($_SERVER['REQUEST_METHOD'] == "POST") {
 
             // Sanitize POST array
@@ -147,6 +153,9 @@
       }
 
       public function show($id_post) {
+         if(!isLoggedIn()) {
+            redirect("users/login");
+         }
          $post = $this->postModel->getPostById($id_post);
 
          $data = [
@@ -157,6 +166,9 @@
       }
 
       public function delete($id_post) {
+         if(!isLoggedIn()) {
+            redirect("users/login");
+         }
          if($_SERVER['REQUEST_METHOD'] == "POST") {    
             // Execute    
             if($this->postModel->deletePost($id_post)) {
@@ -168,6 +180,33 @@
          } else {
             redirect("posts");
          }
+      }
+
+      public function episodes() {
+         // Get posts
+         $posts = $this->postModel->getPosts();
+         $paging = $this->postModel->pagination($noPage);
+
+         $data = [
+            "posts" => $posts,
+            "paging" => $paging
+         ];
+
+         $this->view("posts/episodes", $data);
+      }
+
+      public function episode($id_post) {
+         $posts = $this->postModel->getPostById($id_post);
+         $comments = $this->postModel->getCommentById($id_post);
+         $count = $this->postModel->commentCount($id_post);
+
+         $data = [
+            "posts" => $posts,
+            "comments" => $comments,
+            "count" => $count
+         ];
+
+         $this->view("posts/episode", $data);
       }
 
    }
