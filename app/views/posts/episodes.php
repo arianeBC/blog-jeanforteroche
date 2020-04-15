@@ -39,7 +39,7 @@
          <div class="row text-center">
             <div class="col-12 text-center">
 
-               <?php echo $data['paging']; ?>
+               <?php //echo $data['paging']; ?>
                
             </div>
          </div>

@@ -5,9 +5,9 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <!-- Favicon -->
-   <link rel="icon" type="image/png" sizes="32x32" href="public/images/favicon-32x32.png">
-   <link rel="icon" type="image/png" sizes="16x16" href="public/images/favicon-16x16.png">
-   <link rel="shortcut icon" href="public/images/favicon.ico">
+   <link rel="icon" type="image/png" sizes="32x32" href="<?php echo URLROOT; ?>/images/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URLROOT; ?>/images/favicon-16x16.png">
+   <link rel="shortcut icon" href="<?php echo URLROOT; ?>/images/favicon.ico">
    <!-- Bootstrap, Fontawesome, TinyMCE -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
