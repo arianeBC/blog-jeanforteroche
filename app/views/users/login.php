@@ -17,11 +17,8 @@
                <span class="invalid-feedback"><?php echo $data['password_err']; ?></span>
             </div>
             <div class="row">
-               <div class="col">
-               <input type="submit" value="Se connecter" class="btn btn-success btn-block">
-               </div>
-               <div class="col">
-               <a href="<?php echo URLROOT; ?>/users/register" class="btn btn-light btn-block">Vous n'avez pas de compte? S'inscrire</a>
+               <div class="col text-center">
+               <input type="submit" value="Se connecter" class="btn btn-success">
                </div>
             </div>
          </form>
