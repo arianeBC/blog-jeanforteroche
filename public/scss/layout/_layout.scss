@@ -76,14 +76,16 @@ a.navbar-brand {
    padding: 1rem 0rem;
 }
 /*============LOGIN FORM============*/
-.form-group.login {
+.form-group.login,
+.form-group.register {
    width: 100%;
    position: relative;
    height: 50px;
    margin-bottom: 40px;
    overflow: hidden;
 }
-.form-group.login input {
+.form-group.login input,
+.form-group.register input {
    width: 100%;
    height: 100%;
    color: $black;
@@ -101,7 +103,8 @@ a.navbar-brand {
       transform: translateX(0%);
    }
 }
-.form-group.login label {
+.form-group.login label,
+.form-group.register label {
    position: absolute;
    bottom: -7px;
    left: 0;
@@ -126,6 +129,10 @@ a.navbar-brand {
    bottom: 5px;
    left: 0px;
    transition: all 0.3s ease;
+}
+/*============REGISTER FORM============*/
+.sup-form {
+   font-size: 14px;
 }
 /*============FOOTER============*/
 footer {
