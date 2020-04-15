@@ -23,7 +23,7 @@
             <p class="lead">Pour mon nouveau roman "Billet simple pour l'Alaska", j'ai choisi d'innover. Je change totalement de concept au profit d'un style que l'on pourrait apparenter aux web-séries. Mon livre sera publié par épisodes, à chaque semaine les lundi et les jeudi.</p>
          </div>
          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ">
-            <a href="<?php echo URLROOT; ?>/pages/episodes"><button type="button" class="btn btn-outline-secondary btn-lg">Voir tous les épisodes</button></a>
+            <a href="<?php echo URLROOT; ?>/posts/episodes"><button type="button" class="btn btn-outline-secondary btn-lg">Voir tous les épisodes</button></a>
          </div>
       </div>
    </div>
@@ -75,7 +75,7 @@
                   <div class="card-body d-flex flex-column">
                      <h4 class="card-title"><?php echo $post->title; ?></h4>
                      <p class="card-text"><?php echo $post->excerpt; ?></p>
-                     <a href="<?php echo URLROOT; ?>pages/episode/<?php echo $post->id_post; ?>" class="btn btn-outline-secondary mt-auto">Lire l'épisode</a>
+                     <a href="<?php echo URLROOT; ?>/posts/episode/<?php echo $post->id_post; ?>" class="btn btn-outline-secondary mt-auto">Lire l'épisode</a>
                   </div>
                </div>
             </div>
@@ -87,7 +87,7 @@
    <div class="container-fluid padding">
    <div class="row text-center padding">
       <div class="col-12">
-         <a href="<?php echo URLROOT; ?>/pages/episodes" class="btn btn-primary btn-lg">VOIR TOUS LES ÉPISODES</a>
+         <a href="<?php echo URLROOT; ?>/posts/episodes" class="btn btn-primary btn-lg">VOIR TOUS LES ÉPISODES</a>
       </div>
    </div>
 </div>
