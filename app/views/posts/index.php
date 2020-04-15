@@ -4,7 +4,7 @@
          <div class="col-lg-10">
             <h6 class="text-center">ESPACE ADMMINISTRATION – TOUS LES ÉPISODES</h6>
             <?php flash("post_message"); ?>
-            <a class="btn btn-secondary btn-comment" href="view-comments.php">Commentaires signalés ({{ pending-comment }})</a>
+            <a class="btn btn-secondary btn-comment" href="<?php echo URLROOT; ?>/posts/flags">Commentaires signalés (<?php echo $data['count']; ?>)</a>
             <table class="table table-hover">
                <thead class="thead-dark">
                   <tr>

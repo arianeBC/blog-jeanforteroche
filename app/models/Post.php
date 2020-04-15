@@ -119,6 +119,82 @@
          return $row;
       }
 
+      public function addComment($data) {
+         $this->db->query("INSERT INTO comments (id_post, name, email, comment, published_at, status) VALUES(:id_post, :name, :email, :comment, :published_at, :status)");
+         // Bind values
+         $this->db->bind(":id_post", $data['id_post']);
+         $this->db->bind(":name", $data['name']);
+         $this->db->bind(":email", $data['email']);
+         $this->db->bind(":comment", $data['comment']);
+         $this->db->bind(":published_at", date("Y-m-d"));
+         $this->db->bind(":status", 1);
+
+         // Execute
+         if($this->db->execute()) {
+            return true;
+         } else {
+            return false;
+         }
+
+      }
+
+      public function flagComment($id_comment) {
+         $this->db->query("UPDATE comments SET status=0 WHERE id_comment = :id_comment");
+         // Bind values
+         $this->db->bind(":id_comment", $id_comment);
+
+         // Execute
+         if($this->db->execute()) {
+            return true;
+         } else {
+            return false;
+         }
+      }
+
+      public function pendingComments() {
+         $this->db->query("SELECT * FROM comments WHERE status=0 ORDER BY published_at DESC");
+
+         $results = $this->db->resultSet();
+
+         return $results;
+      }
+
+      public function pendingCommentCount() {
+         $this->db->query("SELECT * FROM comments WHERE status=0");
+
+         $results = $this->db->resultSet();
+
+         $row = $this->db->rowCount();
+
+         return $row;
+      }
+
+      public function deleteComment($id_comment) {
+         $this->db->query("DELETE FROM comments WHERE id_comment = :id_comment");
+
+         $this->db->bind(":id_comment", $id_comment);
+
+         // Execute
+         if($this->db->execute()) {
+            return true;
+         } else {
+            return false;
+         }
+      }
+
+      public function updateComment($id_comment) {
+         $this->db->query("UPDATE comments SET status=1 WHERE id_comment = :id_comment");
+         // Bind values
+         $this->db->bind(":id_comment", $id_comment);
+
+         // Execute
+         if($this->db->execute()) {
+            return true;
+         } else {
+            return false;
+         }
+      }
+
       public function pagination($noPage) {
          $this->db->query("SELECT COUNT(id_post) FROM posts");
          $results = $this->db->single();

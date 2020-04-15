@@ -12,9 +12,11 @@
          }
          // Get posts
          $posts = $this->postModel->getPosts();
+         $count = $this->postModel->pendingCommentCount();
 
          $data = [
-            "posts" => $posts
+            "posts" => $posts,
+            "count" => $count
          ];
 
          $this->view('posts/index', $data);
@@ -185,7 +187,7 @@
       public function episodes() {
          // Get posts
          $posts = $this->postModel->getPosts();
-         $paging = $this->postModel->pagination($noPage);
+         // $paging = $this->postModel->pagination($noPage);
 
          $data = [
             "posts" => $posts,
@@ -196,17 +198,123 @@
       }
 
       public function episode($id_post) {
-         $posts = $this->postModel->getPostById($id_post);
+         $post = $this->postModel->getPostById($id_post);
          $comments = $this->postModel->getCommentById($id_post);
          $count = $this->postModel->commentCount($id_post);
 
          $data = [
-            "posts" => $posts,
+            "id_post" => $id_post,
+            "post" => $post,
             "comments" => $comments,
-            "count" => $count
-         ];
+            "count" => $count,
+            "name" => "",
+            "email" => "",
+            "comment" => "",
 
+         ];
          $this->view("posts/episode", $data);
+
+         if(isset($_POST['btnComment'])) {
+            $post = $this->postModel->getPostById($id_post);
+            $comments = $this->postModel->getCommentById($id_post);
+            $count = $this->postModel->commentCount($id_post);
+
+            // Sanitize POST array
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+               "id_post" => $id_post,
+               "post" => $post,
+               "comments" => $comments,
+               "count" => $count,
+               "name" => trim($_POST['name']),
+               "email" => trim($_POST['email']),
+               "comment" => trim($_POST['comment']),
+               "name_err" => "",
+               "email_err" => "",
+               "comment_err" => ""
+            ];
+
+            //Validate data
+            if(empty($data['name'])) {
+               $data['name_err'] = "Veuillez entrer votre nom";
+            }
+            if(empty($data['email'])) {
+               $data['email_err'] = "Veuillez entrer votre email";
+            }
+            if(empty($data['comment'])) {
+               $data['comment_err'] = "Veuillez entrer un commentaire";
+            }
+
+            // Make sure no errors //)
+            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['comment_err'])) {
+               // Validated
+               if($this->postModel->addComment($data)) {
+                  flash("post_message", "Votre commentaire a été ajouté");
+                  // redirect("posts/episode");
+               } else {
+                  die("Votre commentaire n'a pas pu être ajouté");
+               }
+            } else {
+               // Load view with errors
+               $this->view("posts/episode", $data);
+            }
+
+         } //else {
+         //    $posts = $this->postModel->getPostById($id_post);
+         //    $comments = $this->postModel->getCommentById($id_post);
+         //    $count = $this->postModel->commentCount($id_post);
+         //    $data = [
+         //       "id_post" => $id_post,
+         //       "posts" => $posts,
+         //       "comments" => $comments,
+         //       "count" => $count,
+         //       "name" => "",
+         //       "email" => "",
+         //       "comment" => "",
+         //       "name_err" => "",
+         //       "email_err" => "",
+         //       "comment_err" => ""
+         //    ];
+   
+         //    $this->view('posts/episode', $data);
+         // }
+         //section-episode.php {{ comment-flag-message }}
+         if(isset($_POST['commentFlag'])) {
+            // Validated
+            if($this->postModel->flagComment($_POST['approveId'])) {
+               flash("comment_message", "Ce commentaire a été signalé");
+            } else {
+               die("Ce commentaire n'a pas pu être signalé");
+            }
+         }
       }
 
+      public function flags() {
+         if(!isLoggedIn()) {
+            redirect("users/login");
+         }
+         // Get posts
+         $comments = $this->postModel->pendingComments();
+
+
+         $data = [
+            "comments" => $comments,
+         ];
+
+         $this->view('posts/flags', $data);
+
+         if(isset($_POST['delete'])) {
+            if ($this->postModel->deleteComment($_POST['deleteId'])) {
+               flash("comment_message", "Ce commentaire a été supprimé");
+            }
+         }
+
+         if(isset($_POST['approve'])) {
+            if($this->postModel->updateComment($_POST['approveId'])) {
+               flash("comment_message", "Ce commentaire a été validé");
+            }
+         }
+      }
+      
    }

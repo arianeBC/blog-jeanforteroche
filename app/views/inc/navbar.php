@@ -12,9 +12,6 @@
                   <a href="<?php echo URLROOT; ?>/posts/add" class="nav-link">Ajouter</a>
                </li>
                <li class="nav-item">
-                  <a href="<?php echo URLROOT; ?>/posts/edit" class="nav-link">Modifier</a>
-               </li>
-               <li class="nav-item">
                   <a href="<?php echo URLROOT; ?>/posts" class="nav-link">Tableau de bord</a>
                </li>
                <li class="nav-item">
