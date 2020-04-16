@@ -72,9 +72,8 @@
             if(empty($data['name_err']) && empty($data['email_err']) && empty($data['comment_err'])) {
                // Validated
                if($this->postModel->addComment($data)) {
-                  redirect("posts/episode");
                   flash("comment_added", "Votre commentaire a été ajouté");
-
+                  // redirect("posts/episode");
                } else {
                   die("Votre commentaire n'a pas pu être ajouté");
                }
@@ -88,9 +87,8 @@
          if(isset($_POST['commentFlag'])) {
             // Validated
             if($this->postModel->flagComment($_POST['approveId'])) {
-               redirect("posts/episode");
                flash("comment_flag", "Ce commentaire a été signalé");
-
+               // redirect("posts/episode");
             } else {
                die("Ce commentaire n'a pas pu être signalé");
             }

@@ -14,8 +14,6 @@
          <div class="row welcome text-center">
             <div class="col-12">
                <h1 class="display-4">BILLET SIMPLE POUR L'ALASKA</h1>
-               <?php flash("comment_added"); ?>
-               <?php flash("comment_flag"); ?>
             </div>
          </div>
       </div>
@@ -38,7 +36,8 @@
                   </div>
 
                   <h4 class="card-title comment-title">Commentaires (<?php echo $data['count']; ?>)</h4>
-
+                  <?php flash("comment_added"); ?>
+                  <?php flash("comment_flag"); ?>
                   <?php foreach($data['comments'] as $comment) : ?>
                   <div class="media comment-section">
                      <div class="media-left media-top">
