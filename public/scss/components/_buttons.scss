@@ -14,7 +14,8 @@
       color: $black;
       border-color: $primary-color;
    }
-   &:hover .fa-comment-alt {
+   &:hover .fa-comment-alt,
+   &:hover .fa-pencil-alt {
       color: $dark-black;
       transition: 1s;
    }

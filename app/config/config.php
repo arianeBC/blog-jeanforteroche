@@ -12,3 +12,6 @@
    define("URLROOT", "http://jeanforteroche");
    // Site Name
    define("SITENAME", "Jean Forteroche");
+
+   // Root
+   define( "ROOT", dirname(dirname(dirname(__FILE__))) );

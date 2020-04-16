@@ -196,30 +196,41 @@
       }
 
       public function pagination($noPage) {
-         $this->db->query("SELECT COUNT(id_post) FROM posts");
-         $results = $this->db->single();
+         $this->db->query("SELECT * FROM posts");
+         $results = $this->db->resultSet();
          $row = $this->db->rowCount();
-         $totalRecords = $row[0];
+         $totalRecords = $row;
          $limit = 6;
          $totalPages = ceil($totalRecords/$limit);
+
          $pageLink = "<ul class='pagination justify-content-center'>";
 
          $page = $noPage;
-         // $page = $_GET['page'];
          
          if($page > 1) {
-            $pageLink .= "<a class='arrow' href='" .URLROOT. "/episodes/" .($page-1). "'><i class='fas fa-arrow-left'></i></a>";
+            $pageLink .= "<a class='arrow' href='" .URLROOT. "/posts/episodes/" .($page-1). "'><i class='fas fa-arrow-left'></i></a>";
          }
    
          for($i=1; $i<=$totalPages; $i++) {
-            $pageLink .= "<a class='page-link' href='" .URLROOT. "/episodes/" .$i. "'>" .$i. "</a>";
+            $pageLink .= "<a class='page-link' href='" .URLROOT. "/posts/episodes/" .$i. "'>" .$i. "</a>";
          }
    
          if($page < $totalPages) {
-            $pageLink .= "<a class='arrow' href='" .URLROOT. "/episodes/" .($page+1). "'><i class='fas fa-arrow-right'></i></a>";
+            $pageLink .= "<a class='arrow' href='" .URLROOT. "/posts/episodes/" .($page+1). "'><i class='fas fa-arrow-right'></i></a>";
          }
    
          return $pageLink."</ul>";
+      }
+
+      public function getPostsLimit($limit) {
+         $page = getUrl();
+         $start = ($page[2]-1)*$limit;
+   
+         $this->db->query("SELECT * FROM posts ORDER BY created_at DESC LIMIT $start, $limit");
+
+         $results = $this->db->resultSet();
+
+         return $results;
       }
 
    }

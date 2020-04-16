@@ -14,8 +14,6 @@
          <div class="row welcome text-center">
             <div class="col-12">
                <h1 class="display-4">BILLET SIMPLE POUR L'ALASKA</h1>
-               <?php flash("comment_added"); ?>
-               <?php flash("comment_flag"); ?>
             </div>
          </div>
       </div>
@@ -38,7 +36,8 @@
                   </div>
 
                   <h4 class="card-title comment-title">Commentaires (<?php echo $data['count']; ?>)</h4>
-
+                  <?php flash("comment_added"); ?>
+                  <?php flash("comment_flag"); ?>
                   <?php foreach($data['comments'] as $comment) : ?>
                   <div class="media comment-section">
                      <div class="media-left media-top">
@@ -50,7 +49,7 @@
                            <strong><?php echo $comment->name; ?></strong>
                            <p><?php echo $comment->comment; ?></p> 
                            <span class="comment-date float-right">Publié le <?php echo $comment->published_at; ?></span>
-                           <a href="#"><button type="submit" title="Signaler ce commentaire" name="commentFlag" class="btn float-left comment-flag"><i class="far fa-flag"></i></button></a>
+                           <button type="submit" title="Signaler ce commentaire" name="commentFlag" class="btn float-left comment-flag"><i class="far fa-flag"></i></button>
                         </form>
                      </div>
                   </div>
@@ -61,8 +60,8 @@
 
                         <div class="form-group">
                            <label for="name">Nom : <sup>*</sup></label>
-                           <input type="text" name="name" class="form-control<?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>">
-                           <span class="invalid-feedback"><?php echo $data['name']; ?></span>
+                           <input type="text" name="name" class="form-control <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['name']; ?>">
+                           <span class="invalid-feedback"><?php echo $data['name_err']; ?></span>
                         </div>
                         <div class="form-group">
                            <label for="email">Email : <sup>*</sup></label>
@@ -72,6 +71,7 @@
                         <div class="form-group">
                            <label for="comment">Commentaire : <sup>*</sup></label>
                            <textarea name="comment" maxlength="516" class="form-control <?php echo (!empty($data['comment_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['comment']; ?></textarea>
+                           <span class="invalid-feedback"><?php echo $data['comment_err']; ?></span>
                         </div>
                         <div class="form-group">
                            <button type="submit" name="btnComment" class="btn btn-outline-secondary float-right btn-comment"><i class="far fa-comment-alt"></i>Publier</button>
