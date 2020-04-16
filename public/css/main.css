@@ -178,7 +178,8 @@ video {
   border-color: #b7bf9b;
 }
 
-.btn-outline-secondary:hover .fa-comment-alt {
+.btn-outline-secondary:hover .fa-comment-alt,
+.btn-outline-secondary:hover .fa-pencil-alt {
   color: #212529;
   -webkit-transition: 1s;
   transition: 1s;

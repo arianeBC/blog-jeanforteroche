@@ -20,7 +20,7 @@
 
       <div class="container-fluid padding card-page">
          <div class="row padding episode-row">
-            <?php foreach($data['posts'] as $post) : ?>
+            <?php foreach($data['posts'] as $key => $post) : ?>
             <div class="col-md-4">
                <div class="card style="width: 300px;">
                   <img src="<?php echo URLROOT; ?>/images/<?php echo $post->image; ?>" alt="Aperçu de l'épisode" class="card-img-episodes">
@@ -39,7 +39,7 @@
          <div class="row text-center">
             <div class="col-12 text-center">
 
-               <?php //echo $data['paging']; ?>
+               <?php echo $data['paging']; ?>
                
             </div>
          </div>

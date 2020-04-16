@@ -6,20 +6,22 @@
 
       }
 
-      public function episodes() {
+      public function episodes($noPage) {
          // Get posts
-         $posts = $this->postModel->getPosts();
-         // $paging = $this->postModel->pagination($noPage);
+         $posts = $this->postModel->getPostsLimit(6);
+         $paging = $this->postModel->pagination($noPage);
 
          $data = [
             "posts" => $posts,
-            // "paging" => $paging
+            "paging" => $paging
          ];
-
+         // var_dump($posts);
+         // die();
          $this->view("posts/episodes", $data);
       }
 
       public function episode($id_post) {
+         if(!isset($_POST['btnComment']) && !isset($_POST['commentFlag']) ) {
          $post = $this->postModel->getPostById($id_post);
          $comments = $this->postModel->getCommentById($id_post);
          $count = $this->postModel->commentCount($id_post);
@@ -33,8 +35,8 @@
             "email" => "",
             "comment" => "",
          ];
-
          $this->view("posts/episode", $data);
+         }
 
          if(isset($_POST['btnComment'])) {
             $post = $this->postModel->getPostById($id_post);
@@ -73,7 +75,7 @@
                // Validated
                if($this->postModel->addComment($data)) {
                   flash("comment_added", "Votre commentaire a été ajouté");
-                  // redirect("posts/episode");
+                  redirect("posts/episode/".$id_post);
                } else {
                   die("Votre commentaire n'a pas pu être ajouté");
                }
@@ -88,7 +90,7 @@
             // Validated
             if($this->postModel->flagComment($_POST['approveId'])) {
                flash("comment_flag", "Ce commentaire a été signalé");
-               // redirect("posts/episode");
+               redirect("posts/episode/".$id_post);
             } else {
                die("Ce commentaire n'a pas pu être signalé");
             }
@@ -277,6 +279,8 @@
          if(!isLoggedIn()) {
             redirect("users/login");
          }
+
+         if(!isset($_POST['delete']) && !isset($_POST['approve'])) {
          // Get posts
          $comments = $this->postModel->pendingComments();
 
@@ -286,18 +290,19 @@
          ];
 
          $this->view('posts/flags', $data);
+         }
 
          if(isset($_POST['delete'])) {
             if ($this->postModel->deleteComment($_POST['deleteId'])) {
                flash("comment_message", "Ce commentaire a été supprimé");
-               // redirect("posts/flags");
+               redirect("posts/flags");
             }
          }
 
          if(isset($_POST['approve'])) {
             if($this->postModel->updateComment($_POST['approveId'])) {
                flash("comment_message", "Ce commentaire a été validé");
-               // redirect("posts/flags");
+               redirect("posts/flags");
             }
          }
       }
