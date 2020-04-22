@@ -83,7 +83,7 @@
       <div class="container-fluid padding">
          <div class="row text-center padding">
             <div class="col-12">
-               <a href="<?php echo URLROOT; ?>/posts/episodes" class="btn btn-primary btn-lg">VOIR TOUS LES ÉPISODES</a>
+               <a href="<?php echo URLROOT; ?>/posts/episodes/1" class="btn btn-primary btn-lg">VOIR TOUS LES ÉPISODES</a>
             </div>
          </div>
       </div>
