@@ -1,14 +1,12 @@
-@import "./base/base";
-@import "./base/fixedbootstrap";
-@import "./components/buttons";
-@import "./layout/layout";
-@import "./pages/author";
-@import "./pages/episode";
-@import "./pages/episodes";
-@import "./pages/login";
-@import "./pages/dashboard";
+@import "./base/base", "./base/fixedbootstrap", "./components/buttons", "./layout/layout", "./pages/author", "./pages/episode", "./pages/episodes", "./pages/login", "./pages/dashboard";
 
 /*============AUTHOR EXCERPT============*/
+.page-title {
+   font-family: 'Playfair Display', serif;
+   font-size: 2rem;
+   padding-bottom: 1.5rem;
+}
+
 #author-excerpt {
    padding-bottom: 4rem;
 }
@@ -29,6 +27,9 @@
 }
 
 /*============SOCIAL ICONS============*/
+.follow-link {
+   font-family: 'Playfair Display', serif;
+}
 .social a {
    font-size: 4.5rem;
    padding: 3rem;
@@ -135,7 +136,7 @@
    #author img {
       margin-bottom: 2rem;
    }
-   #episode h1 {
+   #episode h3 {
       margin-top: -25vh;
       font-size: 1.6rem;
    }
@@ -170,7 +171,7 @@
    #author {
       margin-top: -35vh;
    }
-   #episode h1 {
+   #episode h3 {
       margin-top: -35vh;
       // font-size: 1.1rem;
    }

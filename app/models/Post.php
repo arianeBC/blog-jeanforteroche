@@ -208,15 +208,15 @@
          $page = $noPage;
          
          if($page > 1) {
-            $pageLink .= "<a class='arrow' href='" .URLROOT. "/posts/episodes/" .($page-1). "'><i class='fas fa-arrow-left'></i></a>";
+            $pageLink .= "<li><a class='arrow' href='" .URLROOT. "/posts/episodes/" .($page-1). "'><i class='fas fa-arrow-left'></i></a></li>";
          }
    
          for($i=1; $i<=$totalPages; $i++) {
-            $pageLink .= "<a class='page-link' href='" .URLROOT. "/posts/episodes/" .$i. "'>" .$i. "</a>";
+            $pageLink .= "<li><a class='page-link' href='" .URLROOT. "/posts/episodes/" .$i. "'>" .$i. "</a></li>";
          }
    
          if($page < $totalPages) {
-            $pageLink .= "<a class='arrow' href='" .URLROOT. "/posts/episodes/" .($page+1). "'><i class='fas fa-arrow-right'></i></a>";
+            $pageLink .= "<li><a class='arrow' href='" .URLROOT. "/posts/episodes/" .($page+1). "'><i class='fas fa-arrow-right'></i></a></li>";
          }
    
          return $pageLink."</ul>";

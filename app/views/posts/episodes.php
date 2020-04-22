@@ -1,28 +1,26 @@
 <?php require APPROOT . "/views/inc/header.php"; ?>
-
-   <section class="background">
+   <div class="background">
       <figure>
          <div class="fixed-wrap secondary">
             <div id="fixed-secondary">
             </div>
          </div>
       </figure>
-   </section>
+   </div>
 
    <section id="episode">
       <div class="container-fluid padding">
          <div class="row welcome text-center">
             <div class="col-12">
-               <h1 class="display-4">BILLET SIMPLE POUR L'ALASKA</h1>
+               <h3 class="page-title">BILLET SIMPLE POUR L'ALASKA</h3>
             </div>
          </div>
       </div>
-
       <div class="container-fluid padding card-page">
          <div class="row padding episode-row">
             <?php foreach($data['posts'] as $key => $post) : ?>
             <div class="col-md-4">
-               <div class="card style="width: 300px;">
+               <div class="card">
                   <img src="<?php echo URLROOT; ?>/images/<?php echo $post->image; ?>" alt="Aperçu de l'épisode" class="card-img-episodes">
                   <div class="card-body d-flex flex-column">
                      <h4 class="card-title"><?php echo $post->title; ?></h4>
@@ -34,7 +32,6 @@
             <?php endforeach; ?>
          </div>
       </div>
-
       <div class="container-fluid padding">
          <div class="row text-center">
             <div class="col-12 text-center">
@@ -46,7 +43,7 @@
       </div>
    </section>
 
-   <section class="connect">
+   <div class="connect">
       <div class="container-fluid padding">
          <div class="row text-center padding">
             <div class="col-12 social-small padding ">
@@ -57,6 +54,5 @@
             </div>
          </div>
       </div>
-   </section>
-   
+   </div>
 <?php require APPROOT . "/views/inc/footer.php"; ?>

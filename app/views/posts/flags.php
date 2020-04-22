@@ -29,9 +29,9 @@
 
                         <form action="" method="POST">
                            <input type="hidden" name="approveId" value="<?php echo $comment->id_comment; ?>">
-                           <a href="#"><button type="submit" class="btn btn-outline-success btn-sm" name="approve">Approuver</button></a>
+                           <button type="submit" class="btn btn-outline-success btn-sm" name="approve">Approuver</button>
                            <input type="hidden" name="deleteId" value="<?php echo $comment->id_comment; ?>">
-                           <a href="#"><button type="submit" class="btn btn-outline-danger btn-sm" name="delete">Supprimer</button></a>
+                           <button type="submit" class="btn btn-outline-danger btn-sm" name="delete">Supprimer</button>
                         </form>
                      </td>
                   </tr>

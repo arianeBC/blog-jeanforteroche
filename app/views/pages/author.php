@@ -1,19 +1,19 @@
 <?php require APPROOT . "/views/inc/header.php"; ?>
-   <section class="background">
+   <div class="background">
       <figure>
          <div class="fixed-wrap secondary">
             <div id="fixed-secondary">
             </div>
          </div>
       </figure>
-   </section>
+   </div>
 
    <section id="author">
       <div class="container-fluid padding">
          <div class="row padding justify-content-center">
             <div class="col-lg-7">
-               <h2>JEAN FORTEROCHE</h2>
-               <p>Je ne suis né qu'une fois. Cela s'est fait à Saint-Félix-de-Valois, dans la province de Québec. La prochaine fois que je mourrai, ce sera la première fois. Je veux mourir verticalement, la tête en bas et les pieds en haut.</p>
+               <h3 class="page-title">JEAN FORTEROCHE</h3>
+               <p>Je ne suis né qu'u//ne fois. Cela s'est fait à Saint-Félix-de-Valois, dans la province de Québec. La prochaine fois que je mourrai, ce sera la première fois. Je veux mourir verticalement, la tête en bas et les pieds en haut.</p>
                <p>À l'école, j'étais toujours le premier à partir. Je n'y allais pas souvent et j'y restais le moins longtemps possible. J'ai complété mes études secondaires à Joliette, avec les Clercs de Saint-Viateur.</p>
                <p>J'ai souffert six mois à l'École polytechnique de Montréal. Enfin délivré, je me suis pris pour un commis de bureau et me prends encore aujourd'hui pour tel. Mais ceux qui embauchent des commis de bureau ne veulent pas me prendre pour un commis de bureau. Je ne travaille pas toujours et ne travaille pas toujours comme commis de bureau. Un mois sur deux, je suis en chômage.</p>
                <p>J'ai été dans l'Arctique avec l'Aviation canadienne, en 1992. Personne ne veut me croire. Je ne sais pas pourquoi. Je dis : « J'ai été dans l'Arctique. » Ils répondent : « Pas vrai. » En 1993, 1994 (l'année de travail sur L'avalée des avalés) et 1995, j'ai fait de l'auto-stop au Canada, aux États-Unis et au Mexique. C'est fatigant.</p>
@@ -28,7 +28,7 @@
       </div>
    </section>
 
-   <section class="connect">
+   <div class="connect">
       <div class="container-fluid padding">
          <div class="row text-center padding">
             <div class="col-12 social-small padding ">
@@ -39,5 +39,5 @@
             </div>
          </div>
       </div>
-   </section>
+   </div>
 <?php require APPROOT . "/views/inc/footer.php"; ?>
