@@ -59,7 +59,7 @@ figure {
   background-size: cover;
   background-position: center center;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+          transform: translateZ(0);
   will-change: transform;
 }
 
@@ -84,7 +84,7 @@ figure {
   background-size: cover;
   background-position: center center;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+          transform: translateZ(0);
   will-change: transform;
 }
 
@@ -119,7 +119,7 @@ figure {
   background-size: cover;
   background-position: center center;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+          transform: translateZ(0);
   will-change: transform;
   z-index: -1000;
 }
@@ -426,7 +426,7 @@ hr.light-100 {
   padding: 1rem;
 }
 
-#episode h1 {
+#episode h3 {
   margin-top: -15vh;
   font-size: 2.5rem;
 }
@@ -503,6 +503,7 @@ hr.light-100 {
 }
 
 .arrow {
+  display: block;
   padding: .5rem 1rem .5rem 1rem;
   border: none;
 }
@@ -549,6 +550,12 @@ hr.light-100 {
 }
 
 /*============AUTHOR EXCERPT============*/
+.page-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  padding-bottom: 1.5rem;
+}
+
 #author-excerpt {
   padding-bottom: 4rem;
 }
@@ -572,6 +579,10 @@ hr.light-100 {
 }
 
 /*============SOCIAL ICONS============*/
+.follow-link {
+  font-family: 'Playfair Display', serif;
+}
+
 .social a {
   font-size: 4.5rem;
   padding: 3rem;
@@ -693,7 +704,7 @@ hr.light-100 {
   #author img {
     margin-bottom: 2rem;
   }
-  #episode h1 {
+  #episode h3 {
     margin-top: -25vh;
     font-size: 1.6rem;
   }
@@ -728,7 +739,7 @@ hr.light-100 {
   #author {
     margin-top: -35vh;
   }
-  #episode h1 {
+  #episode h3 {
     margin-top: -35vh;
   }
   .card-page {
