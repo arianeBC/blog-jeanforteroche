@@ -59,7 +59,7 @@
       <div class="container-fluid padding">
          <div class="row welcome text-center">
             <div class="col-12">
-               <h2 class="display-4">Billet simple pour l'Alaska</h2>
+               <h3 class="page-section">Billet simple pour l'Alaska</h3>
             </div>
             <hr>
          </div>
@@ -93,7 +93,7 @@
       <div class="container-fluid padding">
          <div class="row text-center padding">
             <div class="col-12">
-               <h3 class="follow-link">Suivez-moi</h3>
+               <h4 class="follow-link">Suivez-moi</h4>
             </div>
             <div class="col-12 social padding">
                <a href="#"><i class="fab fa-facebook"></i></a>

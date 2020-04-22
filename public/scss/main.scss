@@ -6,6 +6,12 @@
    font-size: 2rem;
    padding-bottom: 1.5rem;
 }
+.page-section {
+   font-family: 'Playfair Display', serif;
+   font-size: 3rem;
+   padding-bottom: 1.5rem;
+   padding-top: 1.5rem;
+}
 
 #author-excerpt {
    padding-bottom: 4rem;
@@ -29,6 +35,7 @@
 /*============SOCIAL ICONS============*/
 .follow-link {
    font-family: 'Playfair Display', serif;
+   font-size: 2rem;
 }
 .social a {
    font-size: 4.5rem;
@@ -156,6 +163,9 @@
    .table-action {
       max-width: 110px;
    }
+   .page-section {
+      font-size: 2rem;
+   }
 }
 
 @media (max-width: 576px) {
@@ -213,6 +223,9 @@
       margin: 0rem .2rem 0rem -1rem;
       width: 20px;
       border-radius: 50%;
+   }
+   .page-section {
+      font-size: 1.5rem;
    }
 }
 
