@@ -11,7 +11,7 @@
       </div>
       <div class="caption text-center">
          <h1>BILLET SIMPLE POUR L'ALASKA</h1>
-         <h3>par JEAN FORTEROCHE</h3>
+         <p class="home-title">par JEAN FORTEROCHE</p>
          <a href="#episodes" class="btn btn-outline-light btn-lg">LIRE LE DERNIER ÉPISODE</a>
       </div>
    </section>
