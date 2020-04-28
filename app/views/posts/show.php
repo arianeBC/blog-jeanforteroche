@@ -35,8 +35,8 @@
                      <p class="card-text"><?php echo $data['post']->content; ?></p>
                      <?php if($data['post']->id_user == $_SESSION['user_id']) : ?>
                         <hr>
-                        <a href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['post']->id_user; ?>" class="btn btn-outline-primary btn-sm float-right">Modifier</a>
-                        <form class="pull-right" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id_user; ?>" method="post">
+                        <a href="<?php echo URLROOT; ?>/posts/edit/<?php echo $data['post']->id_post; ?>" class="btn btn-outline-primary btn-sm float-right">Modifier</a>
+                        <form class="pull-right" action="<?php echo URLROOT; ?>/posts/delete/<?php echo $data['post']->id_post; ?>" method="post">
                            <button type="submit" class="btn btn-outline-danger btn-sm float-right">Supprimer</button>
                         </form>
                      <?php endif; ?>
